@@ -141,7 +141,8 @@ set(ITCH_LIB_SOURCES
     src/itch/memory.cpp)
 set(ITCH_TEST_SOURCES
     tests/test_messages.cpp
-    tests/test_parser.cpp)
+    tests/test_parser.cpp
+    tests/test_add_order_decode.cpp)
 
 # One complete set of targets per ISA level. Each variant is its own set of
 # binaries: mixing ISAs inside one binary would let the linker pick the wide
