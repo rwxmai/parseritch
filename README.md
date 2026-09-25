@@ -114,10 +114,11 @@ So:
   `(member, offset)` pairs once. Decode, encode and a `static_assert` that the
   fields tile the message exactly are all generated from that list.
 - **Prefetch lookahead.** `parse_stream_prefetch<D>` hints the order-map group
-  and book of record *i + D* while parsing record *i*, so the cache misses of
-  a full-day session (hundreds of MB of order map) overlap instead of arriving
-  one by one. Results are identical to `parse_stream`; the right *D* is
-  measured, not guessed (`BM_Parse_Prefetch`).
+  and the top-of-book level lines of record *i + D* while parsing record *i*,
+  so the cache misses of a full-day session (hundreds of MB of order map)
+  overlap instead of arriving one by one. Results are identical to
+  `parse_stream`; the right *D* is measured, not guessed (`BM_Parse_Prefetch`).
+  `feed_handler` replays with *D* = 16 by default (`--prefetch 0` turns it off).
 - **Seqlock top-of-book.** Readers get a consistent snapshot or retry. All
   fields share one cache line. Everything is `std::atomic` with relaxed
   loads and stores, so there is no data race; on x86 these are plain `MOV`s.
@@ -202,7 +203,7 @@ curl -O "https://emi.nasdaq.com/ITCH/Nasdaq%20ITCH/01302019.NASDAQ_ITCH50.gz"
 gunzip -k 01302019.NASDAQ_ITCH50.gz
 ./build/feed_handler --replay 01302019.NASDAQ_ITCH50 --symbol AAPL
 ./build/feed_handler --replay 01302019.NASDAQ_ITCH50 --latency         # per-message TSC histogram
-./build/feed_handler --replay 01302019.NASDAQ_ITCH50 --prefetch 16 --perf
+./build/feed_handler --replay 01302019.NASDAQ_ITCH50 --perf             # prefetch 16 is the default
 ./build/feed_handler --replay 01302019.NASDAQ_ITCH50 --depth-profile   # choose ITCH_LEVEL_LINEAR_CHUNKS
 
 # Live MoldUDP64: UDP socket (multicast or unicast)...
