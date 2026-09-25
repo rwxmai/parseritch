@@ -154,6 +154,7 @@ set(ITCH_TEST_SOURCES
     tests/test_add_order_decode.cpp
     tests/test_concurrency.cpp
     tests/test_mold_udp64.cpp
+    tests/test_packet.cpp
     tests/test_histogram.cpp)
 
 # One complete set of targets per ISA level. Each variant is its own set of
