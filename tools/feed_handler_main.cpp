@@ -1,7 +1,7 @@
 /// feed_handler: ITCH 5.0 book builder, from a file or a live MoldUDP64 feed.
 ///
 ///   feed_handler --replay 01302019.NASDAQ_ITCH50 [--latency] [--symbol AAPL]
-///                [--prefetch 16] [--perf] [--depth-profile]
+///                [--prefetch 0|8|16|32] [--perf] [--depth-profile]
 ///   feed_handler --mcast 233.54.12.111:26477 [--iface 10.0.0.5] [--stats 5]
 ///   feed_handler --mcast 233.54.12.111:26477 --xdp eth0:3 [--xdp-native]
 ///   Options: --cpu-feed N --cpu-consumer N  pin threads (Linux)
@@ -76,7 +76,7 @@ struct Config {
     bool        latency = false;
     bool        perf = false;
     bool        depth_profile = false;
-    int         prefetch = 0;
+    int         prefetch = 16;  ///< replay lookahead; 0 turns it off
     std::size_t expected_orders = 8u << 20;
 };
 
@@ -93,7 +93,7 @@ struct Config {
                  "  --xdp-prog PATH      (live) BPF object (default: the one built with this binary)\n"
                  "  --symbol SYM         print this symbol's top of book at the end\n"
                  "  --latency            (replay) per-message TSC latency histogram\n"
-                 "  --prefetch N         (replay) software-prefetch lookahead: 0, 8, 16 or 32 records\n"
+                 "  --prefetch N         (replay) software-prefetch lookahead: 0 (off), 8, 16 (default) or 32 records\n"
                  "  --perf               (replay) IPC and effective/nominal frequency ratio (Linux PMU)\n"
                  "  --depth-profile      (replay) where level operations land relative to the top of\n"
                  "                       book; use it to set ITCH_LEVEL_LINEAR_CHUNKS\n"
