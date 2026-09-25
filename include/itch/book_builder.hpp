@@ -81,14 +81,16 @@ public:
         switch (msg[0]) {
             case 'A': case 'F':
                 engine_.prefetch_order(load_be64(msg + 11));  // group the insert lands in
-                engine_.prefetch_book(load_be16(msg + 1));
+                if (len >= 20) engine_.prefetch_levels(load_be16(msg + 1), msg[19]);  // side byte
                 break;
             case 'E': case 'C': case 'X': case 'D':
                 engine_.prefetch_order(load_be64(msg + 11));
+                engine_.prefetch_levels(load_be16(msg + 1));
                 break;
             case 'U':
                 engine_.prefetch_order(load_be64(msg + 11));
                 if (len >= 27) engine_.prefetch_order(load_be64(msg + 19));
+                engine_.prefetch_levels(load_be16(msg + 1));
                 break;
             default:
                 break;
