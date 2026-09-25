@@ -17,6 +17,38 @@ AF_XDP kernel bypass.
 
 ---
 
+## Performance
+
+| Operation | Time per message | Throughput | vs open-source peers |
+|---|---:|---:|---|
+| Order books, every symbol (prefetch 16) | **37.4 ns** | **26.8M msg/s** | 4.3× itchcpp, 5.8× CppTrader |
+| Order books, every symbol (no prefetch) | 78.5 ns | 12.7M msg/s | 2.0× itchcpp, 2.8× CppTrader |
+| Order books, 8 symbols (`wants()` filter) | 5.7 ns | 175M msg/s | — |
+| Parse every message | 7.5 ns | 132.5M msg/s | 1.4× itchcpp, 1.6× CppTrader |
+| Header-only walk (`for_each_frame`) | 3.2 ns | 317M msg/s | ≈ itchcpp's lazy overlay (2.7 ns) |
+| Engine: Add + Delete (per message) | 58.2 ns | 17.2M msg/s | warm-cache microbenchmark |
+| Engine: partial execute | 10.2 ns | 98.3M ops/s | warm-cache microbenchmark |
+| Engine: replace | 104.4 ns | 9.6M ops/s | warm-cache microbenchmark |
+
+*Nasdaq TotalView-ITCH 5.0, full day 2019-01-30 (368M messages), median of 3
+runs; every library built the same way and run on the same file and machine.
+x86-64-v2 build on an Apple M5 Pro, macOS 26 (Rosetta 2). Method and raw
+results: [`bench-results/compare_01302019`](bench-results/compare_01302019).*
+
+![Time per message: parseritch vs itchcpp, CppTrader and charles-cooper/itch-order-book](docs/img/perf_overview.png)
+
+![Book-building throughput across the 2019-01-30 session](docs/img/perf_session.png)
+
+Throughput holds at ~27M msg/s through the trading day. The two dips are real
+bursts in the feed: the 09:30 open and the 14:00 FOMC statement.
+
+charles-cooper/itch-order-book (47.4 ns) keeps only the total size per price,
+with no per-order state, and uses 4.5× the memory. Every full-book result is
+cross-checked: the four C++ book builders agree on best bid and ask, price and
+size, for 8 symbols at 12:00.
+
+---
+
 ## Where the intrinsics are
 
 | Kernel | File | Variants | Idea |
