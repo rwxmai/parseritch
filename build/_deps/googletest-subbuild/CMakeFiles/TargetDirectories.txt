@@ -1,3 +1,0 @@
-/Users/zefiepie/Downloads/ITCH-feed-handler-main/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
-/Users/zefiepie/Downloads/ITCH-feed-handler-main/build/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
-/Users/zefiepie/Downloads/ITCH-feed-handler-main/build/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir
