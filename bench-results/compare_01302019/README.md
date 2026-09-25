@@ -83,3 +83,13 @@ PEERS=$PEERS bench/compare/build.sh
 PEERS=$PEERS bench/compare/run_all.sh 01302019.NASDAQ_ITCH50 out 3
 python3 bench/compare/aggregate.py out $(stat -f %z 01302019.NASDAQ_ITCH50)
 ```
+
+`after/` also holds what the top-level README's charts are drawn from:
+
+- `session_{1,2,3}.csv`: `bench/compare/bin/session_profile 01302019.NASDAQ_ITCH50`,
+  book-building throughput per 2M-message slice (median slice: 26.9M msg/s);
+- `engine.json`: `bm_itch --benchmark_filter=BM_Engine_ --benchmark_repetitions=5`.
+
+```bash
+python3 bench/compare/plot_readme.py bench-results/compare_01302019/after docs/img   # needs matplotlib
+```
