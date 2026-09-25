@@ -1,0 +1,3 @@
+# Local CMake build trees
+/build/
+/build-*/
