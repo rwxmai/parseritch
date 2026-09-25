@@ -9,12 +9,20 @@
 /// Any other message is forwarded as
 ///   sink.on(const MsgX&)                          if the sink declares it,
 /// and is otherwise neither decoded nor forwarded.
+///
+/// If the sink declares  bool wants(uint8_t type, uint16_t locate) const,
+/// the builder exposes it to the Parser, and rejected messages are neither
+/// decoded nor applied. Filter by locate, not by order-message type: every
+/// ITCH message carries its stock locate (a Replace keeps its original's),
+/// so a locate filter keeps each wanted book complete, while dropping, say,
+/// Deletes would leave stale orders behind.
 
 #include "itch/bytes.hpp"
 #include "itch/messages.hpp"
 #include "itch/order_book.hpp"
 #include "itch/platform.hpp"
 
+#include <concepts>
 #include <type_traits>
 
 namespace itch {
@@ -31,6 +39,11 @@ concept SinkOnBook = requires(Sink& s, const M& m, const BookUpdate& u) { s.on_b
 
 template <class Sink, class M>
 concept SinkOn = requires(Sink& s, const M& m) { s.on(m); };
+
+template <class Sink>
+concept SinkWants = requires(const Sink& s, uint8_t type, uint16_t locate) {
+    { s.wants(type, locate) } -> std::convertible_to<bool>;
+};
 
 template <class Sink>
 class BookBuilder {
@@ -73,11 +86,21 @@ public:
         sink_.on(m);
     }
 
+    /// Present only when the sink filters; see the file comment.
+    [[nodiscard]] ITCH_ALWAYS_INLINE bool wants(uint8_t type, uint16_t locate) const
+        requires SinkWants<Sink>
+    {
+        return sink_.wants(type, locate);
+    }
+
     /// Lookahead hint from Parser::parse_stream_prefetch for a record that
     /// will be parsed a few records from now. The record is not validated
     /// yet, so only read fields the length proves are there.
     ITCH_ALWAYS_INLINE void prefetch(const uint8_t* msg, std::size_t len) const noexcept {
         if (len < 19) return;  // shortest order message ('D') is 19 bytes
+        if constexpr (SinkWants<Sink>) {
+            if (!sink_.wants(msg[0], load_be16(msg + 1))) return;
+        }
         switch (msg[0]) {
             case 'A': case 'F':
                 engine_.prefetch_order(load_be64(msg + 11));  // group the insert lands in
