@@ -140,7 +140,8 @@ endif()
 set(ITCH_LIB_SOURCES
     src/itch/memory.cpp
     src/itch/order_book.cpp
-    src/itch/perf_counters.cpp)
+    src/itch/perf_counters.cpp
+    src/net/itch_file.cpp)
 set(ITCH_TEST_SOURCES
     tests/test_level_search.cpp
     tests/test_block_move.cpp
