@@ -141,7 +141,8 @@ set(ITCH_LIB_SOURCES
     src/itch/memory.cpp
     src/itch/order_book.cpp
     src/itch/perf_counters.cpp
-    src/net/itch_file.cpp)
+    src/net/itch_file.cpp
+    src/net/udp_receiver.cpp)
 set(ITCH_TEST_SOURCES
     tests/test_level_search.cpp
     tests/test_block_move.cpp
@@ -155,6 +156,7 @@ set(ITCH_TEST_SOURCES
     tests/test_add_order_decode.cpp
     tests/test_concurrency.cpp
     tests/test_mold_udp64.cpp
+    tests/test_udp_receiver.cpp
     tests/test_packet.cpp
     tests/test_histogram.cpp)
 
