@@ -2,14 +2,7 @@
 
 **Input:** Nasdaq's free full-day file `01302019.NASDAQ_ITCH50` (11.25 GB,
 368,366,634 messages).
-**Machine:** Apple M5 Pro, 24 GB, macOS.
 **Harness:** [`bench/compare`](../../bench/compare).
-
-parseritch is x86-only, so its rows are x86-64 code translated by **Rosetta 2**.
-Every peer was built twice: x86_64 (`-march=x86-64-v2`, the same as
-parseritch's default) so it runs under Rosetta too, and native arm64. Compare
-x86_64 rows with each other; the arm64 rows show what the peers do without
-translation. Treat all of this as relative, not as native-x86 numbers.
 
 ## Method
 
@@ -71,8 +64,6 @@ the front of the queue.
   feed and consumer threads were 23–30 s from run to run.
 - `after/native_feed_handler_old_pf16.txt` is the binary from before the
   change, run in the same session for an A/B comparison.
-- AVX2 is slower only because Rosetta 2 translates it. That says nothing about
-  native x86.
 
 ## Reproduce
 
