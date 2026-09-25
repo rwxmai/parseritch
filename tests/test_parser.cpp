@@ -101,6 +101,36 @@ TEST(Parser, TrailingPartialRecordIsNotConsumed) {
     EXPECT_EQ(r.adds, std::vector<uint64_t>{1});
 }
 
+// --- wants() filter -------------------------------------------------------
+
+struct LocateFilter : Recorder {
+    uint16_t keep = 0;
+    bool wants(uint8_t, uint16_t locate) const { return locate == keep; }
+};
+
+MsgAddOrder add_at(uint64_t ref, uint16_t locate) {
+    MsgAddOrder m = add(ref);
+    m.locate = locate;
+    return m;
+}
+
+TEST(Parser, WantsFilterSkipsDispatchButStillValidatesAndCounts) {
+    std::vector<uint8_t> s;
+    append(s, add_at(1, 7));
+    append(s, add_at(2, 8));
+    append(s, add_at(3, 7));
+    append_raw(s, {'A', 0, 7});  // wrong length: rejected before the filter sees it
+    LocateFilter r;
+    r.keep = 7;
+    Parser<LocateFilter> p(r);
+    p.parse_stream(s.data(), s.size());
+    EXPECT_EQ(r.adds, (std::vector<uint64_t>{1, 3}));
+    EXPECT_EQ(p.stats().messages, 3u);  // stats describe the feed, filtered or not
+    EXPECT_EQ(p.stats().by_type['A'], 3u);
+    EXPECT_EQ(p.stats().filtered, 1u);
+    EXPECT_EQ(p.stats().bad_length, 1u);
+}
+
 TEST(SymbolDirectory, KnownAndUnknownLocates) {
     SymbolDirectory d;
     EXPECT_EQ(d.symbol(42), "");  // unknown locate is empty, not 8 NULs

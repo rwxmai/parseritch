@@ -14,6 +14,14 @@
 /// target is predicted from the recent type history, which on real ITCH data
 /// is dominated by A/D/U/X/E runs.
 ///
+/// Those runs are short, though, so the target is often mispredicted, and
+/// the branch is most of a message's cost when the handler does little (about
+/// 4 of 7 ns per message on the 2019-01-30 Nasdaq day, parse-only, measured
+/// under Rosetta). A handler may therefore declare
+/// `bool wants(uint8_t type, uint16_t locate) const`: messages it rejects are
+/// validated and counted but never dispatched, so a handler that follows a
+/// few symbols skips the branch for all the others.
+///
 /// Every message length is checked against the spec (kMessageLength) before
 /// decoding, so a truncated or corrupt frame can't cause an out-of-bounds
 /// read.
@@ -23,6 +31,7 @@
 #include "itch/platform.hpp"
 
 #include <array>
+#include <concepts>
 #include <cstddef>
 #include <cstdint>
 
@@ -30,6 +39,12 @@ namespace itch {
 
 template <class Handler, class M>
 concept HandlesMessage = requires(Handler& h, const M& m) { h.on(m); };
+
+/// A handler that wants only some messages (see the file comment).
+template <class Handler>
+concept Filtering = requires(const Handler& h, uint8_t type, uint16_t locate) {
+    { h.wants(type, locate) } -> std::convertible_to<bool>;
+};
 
 /// A handler that can issue software prefetches for a record ahead of time.
 template <class Handler>
@@ -43,6 +58,7 @@ public:
         uint64_t unknown_type = 0;
         uint64_t bad_length   = 0;
         uint64_t empty        = 0;  ///< zero-length frames (legal in MoldUDP64)
+        uint64_t filtered     = 0;  ///< well-formed, but rejected by handler.wants()
         std::array<uint64_t, 256> by_type{};
     };
 
@@ -60,6 +76,9 @@ public:
         }
         ++stats_.messages;
         ++stats_.by_type[type];
+        if constexpr (Filtering<Handler>) {
+            if (!handler_.wants(type, load_be16(msg + 1))) { ++stats_.filtered; return; }
+        }
         static constexpr auto kTable = make_dispatch_table();
         kTable[type](handler_, msg);
     }
