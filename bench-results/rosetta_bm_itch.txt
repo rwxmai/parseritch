@@ -1,0 +1,444 @@
+
+*** Running under Rosetta 2: x86 code is being translated to ARM.
+*** Use these numbers for smoke-testing only; benchmark on native x86-64.
+
+2026-09-24T22:25:50+08:00
+Running ./build/bm_itch
+Run on (15 X 2400 MHz CPU s)
+CPU Caches:
+  L1 Data 64 KiB
+  L1 Instruction 128 KiB
+  L2 Unified 8192 KiB (x15)
+Load Average: 2.57, 4.71, 4.46
+WARNING: running under Rosetta 2 translation: timings are NOT representative
+itch_simd_level: SSE4.1
+----------------------------------------------------------------------------------------------------------------------
+Benchmark                                                            Time             CPU   Iterations UserCounters...
+----------------------------------------------------------------------------------------------------------------------
+BM_LevelSearch/std_lower_bound/depth:8/uniform:0_mean             1.96 ns         1.95 ns            3 items_per_second=511.905M/s
+BM_LevelSearch/std_lower_bound/depth:8/uniform:0_median           1.96 ns         1.96 ns            3 items_per_second=511.122M/s
+BM_LevelSearch/std_lower_bound/depth:8/uniform:0_stddev          0.015 ns        0.015 ns            3 items_per_second=3.98282M/s
+BM_LevelSearch/std_lower_bound/depth:8/uniform:0_cv               0.78 %          0.78 %             3 items_per_second=0.78%
+BM_LevelSearch/std_lower_bound/depth:8/uniform:1_mean             1.80 ns         1.80 ns            3 items_per_second=555.623M/s
+BM_LevelSearch/std_lower_bound/depth:8/uniform:1_median           1.80 ns         1.80 ns            3 items_per_second=556.112M/s
+BM_LevelSearch/std_lower_bound/depth:8/uniform:1_stddev          0.016 ns        0.016 ns            3 items_per_second=4.84757M/s
+BM_LevelSearch/std_lower_bound/depth:8/uniform:1_cv               0.90 %          0.87 %             3 items_per_second=0.87%
+BM_LevelSearch/std_lower_bound/depth:32/uniform:0_mean            2.89 ns         2.89 ns            3 items_per_second=346.419M/s
+BM_LevelSearch/std_lower_bound/depth:32/uniform:0_median          2.89 ns         2.89 ns            3 items_per_second=346.204M/s
+BM_LevelSearch/std_lower_bound/depth:32/uniform:0_stddev         0.007 ns        0.006 ns            3 items_per_second=725.739k/s
+BM_LevelSearch/std_lower_bound/depth:32/uniform:0_cv              0.25 %          0.21 %             3 items_per_second=0.21%
+BM_LevelSearch/std_lower_bound/depth:32/uniform:1_mean            3.60 ns         3.60 ns            3 items_per_second=277.902M/s
+BM_LevelSearch/std_lower_bound/depth:32/uniform:1_median          3.61 ns         3.60 ns            3 items_per_second=277.773M/s
+BM_LevelSearch/std_lower_bound/depth:32/uniform:1_stddev         0.012 ns        0.010 ns            3 items_per_second=744.471k/s
+BM_LevelSearch/std_lower_bound/depth:32/uniform:1_cv              0.33 %          0.27 %             3 items_per_second=0.27%
+BM_LevelSearch/std_lower_bound/depth:128/uniform:0_mean           4.46 ns         4.45 ns            3 items_per_second=224.569M/s
+BM_LevelSearch/std_lower_bound/depth:128/uniform:0_median         4.46 ns         4.45 ns            3 items_per_second=224.798M/s
+BM_LevelSearch/std_lower_bound/depth:128/uniform:0_stddev        0.011 ns        0.010 ns            3 items_per_second=496.927k/s
+BM_LevelSearch/std_lower_bound/depth:128/uniform:0_cv             0.24 %          0.22 %             3 items_per_second=0.22%
+BM_LevelSearch/std_lower_bound/depth:128/uniform:1_mean           4.85 ns         4.84 ns            3 items_per_second=206.598M/s
+BM_LevelSearch/std_lower_bound/depth:128/uniform:1_median         4.80 ns         4.80 ns            3 items_per_second=208.37M/s
+BM_LevelSearch/std_lower_bound/depth:128/uniform:1_stddev        0.097 ns        0.082 ns            3 items_per_second=3.44724M/s
+BM_LevelSearch/std_lower_bound/depth:128/uniform:1_cv             2.01 %          1.68 %             3 items_per_second=1.67%
+BM_LevelSearch/std_lower_bound/depth:512/uniform:0_mean           5.85 ns         5.84 ns            3 items_per_second=171.258M/s
+BM_LevelSearch/std_lower_bound/depth:512/uniform:0_median         5.83 ns         5.82 ns            3 items_per_second=171.693M/s
+BM_LevelSearch/std_lower_bound/depth:512/uniform:0_stddev        0.044 ns        0.038 ns            3 items_per_second=1.12033M/s
+BM_LevelSearch/std_lower_bound/depth:512/uniform:0_cv             0.75 %          0.66 %             3 items_per_second=0.65%
+BM_LevelSearch/std_lower_bound/depth:512/uniform:1_mean           6.79 ns         6.78 ns            3 items_per_second=147.438M/s
+BM_LevelSearch/std_lower_bound/depth:512/uniform:1_median         6.78 ns         6.78 ns            3 items_per_second=147.54M/s
+BM_LevelSearch/std_lower_bound/depth:512/uniform:1_stddev        0.023 ns        0.014 ns            3 items_per_second=306.749k/s
+BM_LevelSearch/std_lower_bound/depth:512/uniform:1_cv             0.34 %          0.21 %             3 items_per_second=0.21%
+BM_LevelSearch/branchless_binary/depth:8/uniform:0_mean           5.17 ns         5.16 ns            3 items_per_second=193.94M/s
+BM_LevelSearch/branchless_binary/depth:8/uniform:0_median         5.10 ns         5.09 ns            3 items_per_second=196.602M/s
+BM_LevelSearch/branchless_binary/depth:8/uniform:0_stddev        0.165 ns        0.155 ns            3 items_per_second=5.74507M/s
+BM_LevelSearch/branchless_binary/depth:8/uniform:0_cv             3.20 %          3.01 %             3 items_per_second=2.96%
+BM_LevelSearch/branchless_binary/depth:8/uniform:1_mean           4.87 ns         4.86 ns            3 items_per_second=206.203M/s
+BM_LevelSearch/branchless_binary/depth:8/uniform:1_median         4.75 ns         4.75 ns            3 items_per_second=210.582M/s
+BM_LevelSearch/branchless_binary/depth:8/uniform:1_stddev        0.247 ns        0.234 ns            3 items_per_second=9.69315M/s
+BM_LevelSearch/branchless_binary/depth:8/uniform:1_cv             5.07 %          4.82 %             3 items_per_second=4.70%
+BM_LevelSearch/branchless_binary/depth:32/uniform:0_mean          7.81 ns         7.79 ns            3 items_per_second=128.34M/s
+BM_LevelSearch/branchless_binary/depth:32/uniform:0_median        7.81 ns         7.80 ns            3 items_per_second=128.26M/s
+BM_LevelSearch/branchless_binary/depth:32/uniform:0_stddev       0.053 ns        0.040 ns            3 items_per_second=653.303k/s
+BM_LevelSearch/branchless_binary/depth:32/uniform:0_cv            0.67 %          0.51 %             3 items_per_second=0.51%
+BM_LevelSearch/branchless_binary/depth:32/uniform:1_mean          11.7 ns         11.7 ns            3 items_per_second=85.4809M/s
+BM_LevelSearch/branchless_binary/depth:32/uniform:1_median        11.7 ns         11.7 ns            3 items_per_second=85.5199M/s
+BM_LevelSearch/branchless_binary/depth:32/uniform:1_stddev       0.041 ns        0.041 ns            3 items_per_second=296.775k/s
+BM_LevelSearch/branchless_binary/depth:32/uniform:1_cv            0.35 %          0.35 %             3 items_per_second=0.35%
+BM_LevelSearch/branchless_binary/depth:128/uniform:0_mean         9.85 ns         9.85 ns            3 items_per_second=101.57M/s
+BM_LevelSearch/branchless_binary/depth:128/uniform:0_median       9.85 ns         9.84 ns            3 items_per_second=101.589M/s
+BM_LevelSearch/branchless_binary/depth:128/uniform:0_stddev      0.006 ns        0.005 ns            3 items_per_second=51.2907k/s
+BM_LevelSearch/branchless_binary/depth:128/uniform:0_cv           0.06 %          0.05 %             3 items_per_second=0.05%
+BM_LevelSearch/branchless_binary/depth:128/uniform:1_mean         21.3 ns         21.3 ns            3 items_per_second=47.0438M/s
+BM_LevelSearch/branchless_binary/depth:128/uniform:1_median       21.3 ns         21.3 ns            3 items_per_second=47.0012M/s
+BM_LevelSearch/branchless_binary/depth:128/uniform:1_stddev      0.059 ns        0.060 ns            3 items_per_second=133.333k/s
+BM_LevelSearch/branchless_binary/depth:128/uniform:1_cv           0.28 %          0.28 %             3 items_per_second=0.28%
+BM_LevelSearch/branchless_binary/depth:512/uniform:0_mean         11.4 ns         11.4 ns            3 items_per_second=87.6165M/s
+BM_LevelSearch/branchless_binary/depth:512/uniform:0_median       11.4 ns         11.4 ns            3 items_per_second=87.6614M/s
+BM_LevelSearch/branchless_binary/depth:512/uniform:0_stddev      0.010 ns        0.011 ns            3 items_per_second=87.1718k/s
+BM_LevelSearch/branchless_binary/depth:512/uniform:0_cv           0.09 %          0.10 %             3 items_per_second=0.10%
+BM_LevelSearch/branchless_binary/depth:512/uniform:1_mean         26.3 ns         26.3 ns            3 items_per_second=38.0405M/s
+BM_LevelSearch/branchless_binary/depth:512/uniform:1_median       26.3 ns         26.3 ns            3 items_per_second=38.018M/s
+BM_LevelSearch/branchless_binary/depth:512/uniform:1_stddev      0.145 ns        0.145 ns            3 items_per_second=209.599k/s
+BM_LevelSearch/branchless_binary/depth:512/uniform:1_cv           0.55 %          0.55 %             3 items_per_second=0.55%
+BM_LevelSearch/scalar_from_back/depth:8/uniform:0_mean            1.97 ns         1.97 ns            3 items_per_second=507.757M/s
+BM_LevelSearch/scalar_from_back/depth:8/uniform:0_median          1.97 ns         1.97 ns            3 items_per_second=508.12M/s
+BM_LevelSearch/scalar_from_back/depth:8/uniform:0_stddev         0.009 ns        0.009 ns            3 items_per_second=2.43069M/s
+BM_LevelSearch/scalar_from_back/depth:8/uniform:0_cv              0.47 %          0.48 %             3 items_per_second=0.48%
+BM_LevelSearch/scalar_from_back/depth:8/uniform:1_mean            2.26 ns         2.26 ns            3 items_per_second=443.324M/s
+BM_LevelSearch/scalar_from_back/depth:8/uniform:1_median          2.25 ns         2.24 ns            3 items_per_second=445.574M/s
+BM_LevelSearch/scalar_from_back/depth:8/uniform:1_stddev         0.023 ns        0.022 ns            3 items_per_second=4.39322M/s
+BM_LevelSearch/scalar_from_back/depth:8/uniform:1_cv              1.00 %          1.00 %             3 items_per_second=0.99%
+BM_LevelSearch/scalar_from_back/depth:32/uniform:0_mean           2.08 ns         2.08 ns            3 items_per_second=481.243M/s
+BM_LevelSearch/scalar_from_back/depth:32/uniform:0_median         2.08 ns         2.08 ns            3 items_per_second=481.76M/s
+BM_LevelSearch/scalar_from_back/depth:32/uniform:0_stddev        0.014 ns        0.014 ns            3 items_per_second=3.28857M/s
+BM_LevelSearch/scalar_from_back/depth:32/uniform:0_cv             0.68 %          0.68 %             3 items_per_second=0.68%
+BM_LevelSearch/scalar_from_back/depth:32/uniform:1_mean           8.81 ns         8.81 ns            3 items_per_second=113.56M/s
+BM_LevelSearch/scalar_from_back/depth:32/uniform:1_median         8.79 ns         8.78 ns            3 items_per_second=113.843M/s
+BM_LevelSearch/scalar_from_back/depth:32/uniform:1_stddev        0.055 ns        0.055 ns            3 items_per_second=708.139k/s
+BM_LevelSearch/scalar_from_back/depth:32/uniform:1_cv             0.62 %          0.63 %             3 items_per_second=0.62%
+BM_LevelSearch/scalar_from_back/depth:128/uniform:0_mean          2.07 ns         2.07 ns            3 items_per_second=483.419M/s
+BM_LevelSearch/scalar_from_back/depth:128/uniform:0_median        2.07 ns         2.07 ns            3 items_per_second=484.005M/s
+BM_LevelSearch/scalar_from_back/depth:128/uniform:0_stddev       0.006 ns        0.006 ns            3 items_per_second=1.35656M/s
+BM_LevelSearch/scalar_from_back/depth:128/uniform:0_cv            0.27 %          0.28 %             3 items_per_second=0.28%
+BM_LevelSearch/scalar_from_back/depth:128/uniform:1_mean          23.4 ns         23.4 ns            3 items_per_second=42.6839M/s
+BM_LevelSearch/scalar_from_back/depth:128/uniform:1_median        23.5 ns         23.4 ns            3 items_per_second=42.6665M/s
+BM_LevelSearch/scalar_from_back/depth:128/uniform:1_stddev       0.043 ns        0.039 ns            3 items_per_second=71.9168k/s
+BM_LevelSearch/scalar_from_back/depth:128/uniform:1_cv            0.18 %          0.17 %             3 items_per_second=0.17%
+BM_LevelSearch/scalar_from_back/depth:512/uniform:0_mean          2.07 ns         2.07 ns            3 items_per_second=482.254M/s
+BM_LevelSearch/scalar_from_back/depth:512/uniform:0_median        2.08 ns         2.08 ns            3 items_per_second=480.037M/s
+BM_LevelSearch/scalar_from_back/depth:512/uniform:0_stddev       0.022 ns        0.022 ns            3 items_per_second=5.22313M/s
+BM_LevelSearch/scalar_from_back/depth:512/uniform:0_cv            1.08 %          1.08 %             3 items_per_second=1.08%
+BM_LevelSearch/scalar_from_back/depth:512/uniform:1_mean          35.2 ns         35.2 ns            3 items_per_second=28.4273M/s
+BM_LevelSearch/scalar_from_back/depth:512/uniform:1_median        35.2 ns         35.2 ns            3 items_per_second=28.4298M/s
+BM_LevelSearch/scalar_from_back/depth:512/uniform:1_stddev       0.037 ns        0.037 ns            3 items_per_second=30.0045k/s
+BM_LevelSearch/scalar_from_back/depth:512/uniform:1_cv            0.11 %          0.11 %             3 items_per_second=0.11%
+BM_LevelSearch/sse2_from_back/depth:8/uniform:0_mean              2.66 ns         2.66 ns            3 items_per_second=376.033M/s
+BM_LevelSearch/sse2_from_back/depth:8/uniform:0_median            2.66 ns         2.66 ns            3 items_per_second=375.84M/s
+BM_LevelSearch/sse2_from_back/depth:8/uniform:0_stddev           0.002 ns        0.003 ns            3 items_per_second=368.453k/s
+BM_LevelSearch/sse2_from_back/depth:8/uniform:0_cv                0.09 %          0.10 %             3 items_per_second=0.10%
+BM_LevelSearch/sse2_from_back/depth:8/uniform:1_mean              2.74 ns         2.74 ns            3 items_per_second=365.003M/s
+BM_LevelSearch/sse2_from_back/depth:8/uniform:1_median            2.74 ns         2.74 ns            3 items_per_second=365.011M/s
+BM_LevelSearch/sse2_from_back/depth:8/uniform:1_stddev           0.002 ns        0.002 ns            3 items_per_second=276.052k/s
+BM_LevelSearch/sse2_from_back/depth:8/uniform:1_cv                0.06 %          0.08 %             3 items_per_second=0.08%
+BM_LevelSearch/sse2_from_back/depth:32/uniform:0_mean             2.69 ns         2.69 ns            3 items_per_second=371.813M/s
+BM_LevelSearch/sse2_from_back/depth:32/uniform:0_median           2.69 ns         2.69 ns            3 items_per_second=371.933M/s
+BM_LevelSearch/sse2_from_back/depth:32/uniform:0_stddev          0.003 ns        0.003 ns            3 items_per_second=444.934k/s
+BM_LevelSearch/sse2_from_back/depth:32/uniform:0_cv               0.13 %          0.12 %             3 items_per_second=0.12%
+BM_LevelSearch/sse2_from_back/depth:32/uniform:1_mean             5.72 ns         5.72 ns            3 items_per_second=174.922M/s
+BM_LevelSearch/sse2_from_back/depth:32/uniform:1_median           5.71 ns         5.70 ns            3 items_per_second=175.382M/s
+BM_LevelSearch/sse2_from_back/depth:32/uniform:1_stddev          0.031 ns        0.032 ns            3 items_per_second=967.36k/s
+BM_LevelSearch/sse2_from_back/depth:32/uniform:1_cv               0.55 %          0.55 %             3 items_per_second=0.55%
+BM_LevelSearch/sse2_from_back/depth:128/uniform:0_mean            2.69 ns         2.69 ns            3 items_per_second=371.682M/s
+BM_LevelSearch/sse2_from_back/depth:128/uniform:0_median          2.69 ns         2.69 ns            3 items_per_second=371.354M/s
+BM_LevelSearch/sse2_from_back/depth:128/uniform:0_stddev         0.004 ns        0.004 ns            3 items_per_second=574.956k/s
+BM_LevelSearch/sse2_from_back/depth:128/uniform:0_cv              0.15 %          0.15 %             3 items_per_second=0.15%
+BM_LevelSearch/sse2_from_back/depth:128/uniform:1_mean            16.6 ns         16.6 ns            3 items_per_second=60.3898M/s
+BM_LevelSearch/sse2_from_back/depth:128/uniform:1_median          16.6 ns         16.5 ns            3 items_per_second=60.4279M/s
+BM_LevelSearch/sse2_from_back/depth:128/uniform:1_stddev         0.100 ns        0.099 ns            3 items_per_second=362.507k/s
+BM_LevelSearch/sse2_from_back/depth:128/uniform:1_cv              0.61 %          0.60 %             3 items_per_second=0.60%
+BM_LevelSearch/sse2_from_back/depth:512/uniform:0_mean            2.69 ns         2.68 ns            3 items_per_second=372.479M/s
+BM_LevelSearch/sse2_from_back/depth:512/uniform:0_median          2.69 ns         2.69 ns            3 items_per_second=372.013M/s
+BM_LevelSearch/sse2_from_back/depth:512/uniform:0_stddev         0.008 ns        0.007 ns            3 items_per_second=1.02859M/s
+BM_LevelSearch/sse2_from_back/depth:512/uniform:0_cv              0.28 %          0.28 %             3 items_per_second=0.28%
+BM_LevelSearch/sse2_from_back/depth:512/uniform:1_mean            30.5 ns         30.5 ns            3 items_per_second=32.7983M/s
+BM_LevelSearch/sse2_from_back/depth:512/uniform:1_median          30.5 ns         30.5 ns            3 items_per_second=32.765M/s
+BM_LevelSearch/sse2_from_back/depth:512/uniform:1_stddev         0.164 ns        0.157 ns            3 items_per_second=168.786k/s
+BM_LevelSearch/sse2_from_back/depth:512/uniform:1_cv              0.54 %          0.51 %             3 items_per_second=0.51%
+BM_LevelSearch/sse41_from_back/depth:8/uniform:0_mean             2.55 ns         2.55 ns            3 items_per_second=392.768M/s
+BM_LevelSearch/sse41_from_back/depth:8/uniform:0_median           2.54 ns         2.54 ns            3 items_per_second=393.175M/s
+BM_LevelSearch/sse41_from_back/depth:8/uniform:0_stddev          0.005 ns        0.005 ns            3 items_per_second=734.048k/s
+BM_LevelSearch/sse41_from_back/depth:8/uniform:0_cv               0.21 %          0.19 %             3 items_per_second=0.19%
+BM_LevelSearch/sse41_from_back/depth:8/uniform:1_mean             2.63 ns         2.62 ns            3 items_per_second=381.081M/s
+BM_LevelSearch/sse41_from_back/depth:8/uniform:1_median           2.63 ns         2.63 ns            3 items_per_second=380.662M/s
+BM_LevelSearch/sse41_from_back/depth:8/uniform:1_stddev          0.007 ns        0.007 ns            3 items_per_second=1.05975M/s
+BM_LevelSearch/sse41_from_back/depth:8/uniform:1_cv               0.28 %          0.28 %             3 items_per_second=0.28%
+BM_LevelSearch/sse41_from_back/depth:32/uniform:0_mean            3.08 ns         3.08 ns            3 items_per_second=325.166M/s
+BM_LevelSearch/sse41_from_back/depth:32/uniform:0_median          3.08 ns         3.08 ns            3 items_per_second=325.016M/s
+BM_LevelSearch/sse41_from_back/depth:32/uniform:0_stddev         0.002 ns        0.003 ns            3 items_per_second=358.009k/s
+BM_LevelSearch/sse41_from_back/depth:32/uniform:0_cv              0.07 %          0.11 %             3 items_per_second=0.11%
+BM_LevelSearch/sse41_from_back/depth:32/uniform:1_mean            5.77 ns         5.76 ns            3 items_per_second=173.53M/s
+BM_LevelSearch/sse41_from_back/depth:32/uniform:1_median          5.71 ns         5.70 ns            3 items_per_second=175.317M/s
+BM_LevelSearch/sse41_from_back/depth:32/uniform:1_stddev         0.126 ns        0.125 ns            3 items_per_second=3.72743M/s
+BM_LevelSearch/sse41_from_back/depth:32/uniform:1_cv              2.18 %          2.17 %             3 items_per_second=2.15%
+BM_LevelSearch/sse41_from_back/depth:128/uniform:0_mean           3.08 ns         3.08 ns            3 items_per_second=324.664M/s
+BM_LevelSearch/sse41_from_back/depth:128/uniform:0_median         3.08 ns         3.08 ns            3 items_per_second=324.639M/s
+BM_LevelSearch/sse41_from_back/depth:128/uniform:0_stddev        0.003 ns        0.003 ns            3 items_per_second=335.259k/s
+BM_LevelSearch/sse41_from_back/depth:128/uniform:0_cv             0.11 %          0.10 %             3 items_per_second=0.10%
+BM_LevelSearch/sse41_from_back/depth:128/uniform:1_mean           17.3 ns         17.3 ns            3 items_per_second=57.6894M/s
+BM_LevelSearch/sse41_from_back/depth:128/uniform:1_median         17.2 ns         17.2 ns            3 items_per_second=58.0137M/s
+BM_LevelSearch/sse41_from_back/depth:128/uniform:1_stddev        0.283 ns        0.284 ns            3 items_per_second=937.024k/s
+BM_LevelSearch/sse41_from_back/depth:128/uniform:1_cv             1.63 %          1.64 %             3 items_per_second=1.62%
+BM_LevelSearch/sse41_from_back/depth:512/uniform:0_mean           3.08 ns         3.08 ns            3 items_per_second=324.824M/s
+BM_LevelSearch/sse41_from_back/depth:512/uniform:0_median         3.08 ns         3.08 ns            3 items_per_second=324.52M/s
+BM_LevelSearch/sse41_from_back/depth:512/uniform:0_stddev        0.007 ns        0.007 ns            3 items_per_second=755.93k/s
+BM_LevelSearch/sse41_from_back/depth:512/uniform:0_cv             0.24 %          0.23 %             3 items_per_second=0.23%
+BM_LevelSearch/sse41_from_back/depth:512/uniform:1_mean           30.7 ns         30.6 ns            3 items_per_second=32.6477M/s
+BM_LevelSearch/sse41_from_back/depth:512/uniform:1_median         30.6 ns         30.6 ns            3 items_per_second=32.6678M/s
+BM_LevelSearch/sse41_from_back/depth:512/uniform:1_stddev        0.047 ns        0.050 ns            3 items_per_second=53.0978k/s
+BM_LevelSearch/sse41_from_back/depth:512/uniform:1_cv             0.15 %          0.16 %             3 items_per_second=0.16%
+BM_LevelSearchChunks/chunks:0/depth:256/uniform:0_mean            11.0 ns         11.0 ns            3 items_per_second=91.1734M/s
+BM_LevelSearchChunks/chunks:0/depth:256/uniform:0_median          11.0 ns         11.0 ns            3 items_per_second=91.2044M/s
+BM_LevelSearchChunks/chunks:0/depth:256/uniform:0_stddev         0.014 ns        0.014 ns            3 items_per_second=113.038k/s
+BM_LevelSearchChunks/chunks:0/depth:256/uniform:0_cv              0.13 %          0.12 %             3 items_per_second=0.12%
+BM_LevelSearchChunks/chunks:0/depth:256/uniform:1_mean            22.3 ns         22.3 ns            3 items_per_second=44.9159M/s
+BM_LevelSearchChunks/chunks:0/depth:256/uniform:1_median          22.2 ns         22.1 ns            3 items_per_second=45.1485M/s
+BM_LevelSearchChunks/chunks:0/depth:256/uniform:1_stddev         0.375 ns        0.373 ns            3 items_per_second=746.891k/s
+BM_LevelSearchChunks/chunks:0/depth:256/uniform:1_cv              1.68 %          1.67 %             3 items_per_second=1.66%
+BM_LevelSearchChunks/chunks:1/depth:256/uniform:0_mean            2.58 ns         2.57 ns            3 items_per_second=388.404M/s
+BM_LevelSearchChunks/chunks:1/depth:256/uniform:0_median          2.58 ns         2.58 ns            3 items_per_second=388.338M/s
+BM_LevelSearchChunks/chunks:1/depth:256/uniform:0_stddev         0.001 ns        0.001 ns            3 items_per_second=177.018k/s
+BM_LevelSearchChunks/chunks:1/depth:256/uniform:0_cv              0.05 %          0.05 %             3 items_per_second=0.05%
+BM_LevelSearchChunks/chunks:1/depth:256/uniform:1_mean            21.6 ns         21.6 ns            3 items_per_second=46.2961M/s
+BM_LevelSearchChunks/chunks:1/depth:256/uniform:1_median          21.7 ns         21.7 ns            3 items_per_second=46.149M/s
+BM_LevelSearchChunks/chunks:1/depth:256/uniform:1_stddev         0.155 ns        0.155 ns            3 items_per_second=334.127k/s
+BM_LevelSearchChunks/chunks:1/depth:256/uniform:1_cv              0.72 %          0.72 %             3 items_per_second=0.72%
+BM_LevelSearchChunks/chunks:2/depth:256/uniform:0_mean            2.60 ns         2.59 ns            3 items_per_second=385.36M/s
+BM_LevelSearchChunks/chunks:2/depth:256/uniform:0_median          2.60 ns         2.60 ns            3 items_per_second=384.926M/s
+BM_LevelSearchChunks/chunks:2/depth:256/uniform:0_stddev         0.005 ns        0.005 ns            3 items_per_second=804.263k/s
+BM_LevelSearchChunks/chunks:2/depth:256/uniform:0_cv              0.20 %          0.21 %             3 items_per_second=0.21%
+BM_LevelSearchChunks/chunks:2/depth:256/uniform:1_mean            21.4 ns         21.4 ns            3 items_per_second=46.8059M/s
+BM_LevelSearchChunks/chunks:2/depth:256/uniform:1_median          21.4 ns         21.4 ns            3 items_per_second=46.7696M/s
+BM_LevelSearchChunks/chunks:2/depth:256/uniform:1_stddev         0.058 ns        0.060 ns            3 items_per_second=132.53k/s
+BM_LevelSearchChunks/chunks:2/depth:256/uniform:1_cv              0.27 %          0.28 %             3 items_per_second=0.28%
+BM_LevelSearchChunks/chunks:4/depth:256/uniform:0_mean            3.15 ns         3.15 ns            3 items_per_second=317.555M/s
+BM_LevelSearchChunks/chunks:4/depth:256/uniform:0_median          3.15 ns         3.15 ns            3 items_per_second=317.557M/s
+BM_LevelSearchChunks/chunks:4/depth:256/uniform:0_stddev         0.004 ns        0.004 ns            3 items_per_second=442.662k/s
+BM_LevelSearchChunks/chunks:4/depth:256/uniform:0_cv              0.13 %          0.14 %             3 items_per_second=0.14%
+BM_LevelSearchChunks/chunks:4/depth:256/uniform:1_mean            24.9 ns         24.8 ns            3 items_per_second=40.2437M/s
+BM_LevelSearchChunks/chunks:4/depth:256/uniform:1_median          24.9 ns         24.9 ns            3 items_per_second=40.118M/s
+BM_LevelSearchChunks/chunks:4/depth:256/uniform:1_stddev         0.138 ns        0.138 ns            3 items_per_second=224.866k/s
+BM_LevelSearchChunks/chunks:4/depth:256/uniform:1_cv              0.56 %          0.56 %             3 items_per_second=0.56%
+BM_LevelSearchChunks/chunks:8/depth:256/uniform:0_mean            3.17 ns         3.16 ns            3 items_per_second=316.119M/s
+BM_LevelSearchChunks/chunks:8/depth:256/uniform:0_median          3.17 ns         3.16 ns            3 items_per_second=316.08M/s
+BM_LevelSearchChunks/chunks:8/depth:256/uniform:0_stddev         0.001 ns        0.001 ns            3 items_per_second=107.842k/s
+BM_LevelSearchChunks/chunks:8/depth:256/uniform:0_cv              0.03 %          0.03 %             3 items_per_second=0.03%
+BM_LevelSearchChunks/chunks:8/depth:256/uniform:1_mean            29.7 ns         29.7 ns            3 items_per_second=33.7008M/s
+BM_LevelSearchChunks/chunks:8/depth:256/uniform:1_median          29.7 ns         29.6 ns            3 items_per_second=33.7348M/s
+BM_LevelSearchChunks/chunks:8/depth:256/uniform:1_stddev         0.325 ns        0.326 ns            3 items_per_second=369.179k/s
+BM_LevelSearchChunks/chunks:8/depth:256/uniform:1_cv              1.09 %          1.10 %             3 items_per_second=1.10%
+BM_LevelSearchChunks/chunks:32/depth:256/uniform:0_mean           2.61 ns         2.61 ns            3 items_per_second=383.302M/s
+BM_LevelSearchChunks/chunks:32/depth:256/uniform:0_median         2.61 ns         2.60 ns            3 items_per_second=383.952M/s
+BM_LevelSearchChunks/chunks:32/depth:256/uniform:0_stddev        0.009 ns        0.009 ns            3 items_per_second=1.29368M/s
+BM_LevelSearchChunks/chunks:32/depth:256/uniform:0_cv             0.34 %          0.34 %             3 items_per_second=0.34%
+BM_LevelSearchChunks/chunks:32/depth:256/uniform:1_mean           38.9 ns         38.9 ns            3 items_per_second=25.7119M/s
+BM_LevelSearchChunks/chunks:32/depth:256/uniform:1_median         38.9 ns         38.9 ns            3 items_per_second=25.7176M/s
+BM_LevelSearchChunks/chunks:32/depth:256/uniform:1_stddev        0.067 ns        0.067 ns            3 items_per_second=44.3298k/s
+BM_LevelSearchChunks/chunks:32/depth:256/uniform:1_cv             0.17 %          0.17 %             3 items_per_second=0.17%
+BM_MapFind/legacy_quadratic_scalar/live:4096_mean                0.650 ns        0.650 ns            3 items_per_second=1.53849G/s
+BM_MapFind/legacy_quadratic_scalar/live:4096_median              0.649 ns        0.648 ns            3 items_per_second=1.54243G/s
+BM_MapFind/legacy_quadratic_scalar/live:4096_stddev              0.003 ns        0.003 ns            3 items_per_second=7.26237M/s
+BM_MapFind/legacy_quadratic_scalar/live:4096_cv                   0.47 %          0.47 %             3 items_per_second=0.47%
+BM_MapFind/legacy_quadratic_scalar/live:65536_mean               0.934 ns        0.933 ns            3 items_per_second=1.07188G/s
+BM_MapFind/legacy_quadratic_scalar/live:65536_median             0.932 ns        0.932 ns            3 items_per_second=1.07326G/s
+BM_MapFind/legacy_quadratic_scalar/live:65536_stddev             0.025 ns        0.025 ns            3 items_per_second=28.1873M/s
+BM_MapFind/legacy_quadratic_scalar/live:65536_cv                  2.63 %          2.64 %             3 items_per_second=2.63%
+BM_MapFind/legacy_quadratic_scalar/live:114000_mean               1.10 ns         1.10 ns            3 items_per_second=908.357M/s
+BM_MapFind/legacy_quadratic_scalar/live:114000_median             1.09 ns         1.09 ns            3 items_per_second=914.956M/s
+BM_MapFind/legacy_quadratic_scalar/live:114000_stddev            0.016 ns        0.016 ns            3 items_per_second=12.774M/s
+BM_MapFind/legacy_quadratic_scalar/live:114000_cv                 1.42 %          1.42 %             3 items_per_second=1.41%
+BM_MapFind/legacy_quadratic_scalar/live:1048576_mean              2.72 ns         2.71 ns            3 items_per_second=368.489M/s
+BM_MapFind/legacy_quadratic_scalar/live:1048576_median            2.72 ns         2.71 ns            3 items_per_second=368.343M/s
+BM_MapFind/legacy_quadratic_scalar/live:1048576_stddev           0.007 ns        0.007 ns            3 items_per_second=956.441k/s
+BM_MapFind/legacy_quadratic_scalar/live:1048576_cv                0.26 %          0.26 %             3 items_per_second=0.26%
+BM_MapFind/legacy_quadratic_scalar/live:3600000_mean              4.42 ns         4.41 ns            3 items_per_second=226.539M/s
+BM_MapFind/legacy_quadratic_scalar/live:3600000_median            4.42 ns         4.42 ns            3 items_per_second=226.245M/s
+BM_MapFind/legacy_quadratic_scalar/live:3600000_stddev           0.010 ns        0.010 ns            3 items_per_second=521.701k/s
+BM_MapFind/legacy_quadratic_scalar/live:3600000_cv                0.24 %          0.23 %             3 items_per_second=0.23%
+BM_MapFind/swiss_swar8/live:4096_mean                             1.41 ns         1.41 ns            3 items_per_second=707.564M/s load=0.5
+BM_MapFind/swiss_swar8/live:4096_median                           1.41 ns         1.41 ns            3 items_per_second=707.523M/s load=0.5
+BM_MapFind/swiss_swar8/live:4096_stddev                          0.000 ns        0.000 ns            3 items_per_second=250.075k/s load=0
+BM_MapFind/swiss_swar8/live:4096_cv                               0.03 %          0.04 %             3 items_per_second=0.04% load=0.00%
+BM_MapFind/swiss_swar8/live:65536_mean                            1.94 ns         1.94 ns            3 items_per_second=514.562M/s load=0.5
+BM_MapFind/swiss_swar8/live:65536_median                          1.95 ns         1.94 ns            3 items_per_second=514.352M/s load=0.5
+BM_MapFind/swiss_swar8/live:65536_stddev                         0.003 ns        0.003 ns            3 items_per_second=831.021k/s load=0
+BM_MapFind/swiss_swar8/live:65536_cv                              0.16 %          0.16 %             3 items_per_second=0.16% load=0.00%
+BM_MapFind/swiss_swar8/live:114000_mean                           2.13 ns         2.13 ns            3 items_per_second=469.394M/s load=0.869751
+BM_MapFind/swiss_swar8/live:114000_median                         2.13 ns         2.13 ns            3 items_per_second=470.469M/s load=0.869751
+BM_MapFind/swiss_swar8/live:114000_stddev                        0.009 ns        0.009 ns            3 items_per_second=2.00561M/s load=0
+BM_MapFind/swiss_swar8/live:114000_cv                             0.44 %          0.43 %             3 items_per_second=0.43% load=0.00%
+BM_MapFind/swiss_swar8/live:1048576_mean                          9.38 ns         9.37 ns            3 items_per_second=106.702M/s load=0.5
+BM_MapFind/swiss_swar8/live:1048576_median                        9.36 ns         9.35 ns            3 items_per_second=106.91M/s load=0.5
+BM_MapFind/swiss_swar8/live:1048576_stddev                       0.049 ns        0.049 ns            3 items_per_second=555.415k/s load=0
+BM_MapFind/swiss_swar8/live:1048576_cv                            0.53 %          0.52 %             3 items_per_second=0.52% load=0.00%
+BM_MapFind/swiss_swar8/live:3600000_mean                          11.3 ns         11.3 ns            3 items_per_second=88.5006M/s load=0.858307
+BM_MapFind/swiss_swar8/live:3600000_median                        11.3 ns         11.3 ns            3 items_per_second=88.6586M/s load=0.858307
+BM_MapFind/swiss_swar8/live:3600000_stddev                       0.043 ns        0.043 ns            3 items_per_second=333.99k/s load=0
+BM_MapFind/swiss_swar8/live:3600000_cv                            0.38 %          0.38 %             3 items_per_second=0.38% load=0.00%
+BM_MapFind/swiss_sse2_16/live:4096_mean                           1.76 ns         1.76 ns            3 items_per_second=567.998M/s load=0.5
+BM_MapFind/swiss_sse2_16/live:4096_median                         1.76 ns         1.76 ns            3 items_per_second=567.925M/s load=0.5
+BM_MapFind/swiss_sse2_16/live:4096_stddev                        0.000 ns        0.001 ns            3 items_per_second=176.621k/s load=0
+BM_MapFind/swiss_sse2_16/live:4096_cv                             0.02 %          0.03 %             3 items_per_second=0.03% load=0.00%
+BM_MapFind/swiss_sse2_16/live:65536_mean                          2.23 ns         2.22 ns            3 items_per_second=449.63M/s load=0.5
+BM_MapFind/swiss_sse2_16/live:65536_median                        2.23 ns         2.23 ns            3 items_per_second=449.412M/s load=0.5
+BM_MapFind/swiss_sse2_16/live:65536_stddev                       0.002 ns        0.002 ns            3 items_per_second=427.611k/s load=0
+BM_MapFind/swiss_sse2_16/live:65536_cv                            0.11 %          0.10 %             3 items_per_second=0.10% load=0.00%
+BM_MapFind/swiss_sse2_16/live:114000_mean                         2.69 ns         2.69 ns            3 items_per_second=372.43M/s load=0.869751
+BM_MapFind/swiss_sse2_16/live:114000_median                       2.69 ns         2.68 ns            3 items_per_second=372.486M/s load=0.869751
+BM_MapFind/swiss_sse2_16/live:114000_stddev                      0.001 ns        0.001 ns            3 items_per_second=151.219k/s load=0
+BM_MapFind/swiss_sse2_16/live:114000_cv                           0.05 %          0.04 %             3 items_per_second=0.04% load=0.00%
+BM_MapFind/swiss_sse2_16/live:1048576_mean                        9.11 ns         9.09 ns            3 items_per_second=109.987M/s load=0.5
+BM_MapFind/swiss_sse2_16/live:1048576_median                      9.11 ns         9.10 ns            3 items_per_second=109.902M/s load=0.5
+BM_MapFind/swiss_sse2_16/live:1048576_stddev                     0.018 ns        0.019 ns            3 items_per_second=224.798k/s load=0
+BM_MapFind/swiss_sse2_16/live:1048576_cv                          0.20 %          0.20 %             3 items_per_second=0.20% load=0.00%
+BM_MapFind/swiss_sse2_16/live:3600000_mean                        11.4 ns         11.3 ns            3 items_per_second=88.1799M/s load=0.858307
+BM_MapFind/swiss_sse2_16/live:3600000_median                      11.4 ns         11.3 ns            3 items_per_second=88.1673M/s load=0.858307
+BM_MapFind/swiss_sse2_16/live:3600000_stddev                     0.063 ns        0.061 ns            3 items_per_second=476.103k/s load=0
+BM_MapFind/swiss_sse2_16/live:3600000_cv                          0.56 %          0.54 %             3 items_per_second=0.54% load=0.00%
+BM_MapFindMiss/swiss_swar8/live:4096_mean                         1.35 ns         1.35 ns            3 items_per_second=740.815M/s
+BM_MapFindMiss/swiss_swar8/live:4096_median                       1.35 ns         1.35 ns            3 items_per_second=741.701M/s
+BM_MapFindMiss/swiss_swar8/live:4096_stddev                      0.003 ns        0.003 ns            3 items_per_second=1.88856M/s
+BM_MapFindMiss/swiss_swar8/live:4096_cv                           0.24 %          0.26 %             3 items_per_second=0.25%
+BM_MapFindMiss/swiss_swar8/live:65536_mean                        1.41 ns         1.41 ns            3 items_per_second=709.095M/s
+BM_MapFindMiss/swiss_swar8/live:65536_median                      1.41 ns         1.41 ns            3 items_per_second=711.451M/s
+BM_MapFindMiss/swiss_swar8/live:65536_stddev                     0.028 ns        0.025 ns            3 items_per_second=12.466M/s
+BM_MapFindMiss/swiss_swar8/live:65536_cv                          1.95 %          1.77 %             3 items_per_second=1.76%
+BM_MapFindMiss/swiss_swar8/live:114000_mean                       6.45 ns         6.45 ns            3 items_per_second=155.165M/s
+BM_MapFindMiss/swiss_swar8/live:114000_median                     6.42 ns         6.41 ns            3 items_per_second=155.941M/s
+BM_MapFindMiss/swiss_swar8/live:114000_stddev                    0.094 ns        0.094 ns            3 items_per_second=2.25138M/s
+BM_MapFindMiss/swiss_swar8/live:114000_cv                         1.45 %          1.46 %             3 items_per_second=1.45%
+BM_MapFindMiss/swiss_swar8/live:1048576_mean                      1.87 ns         1.87 ns            3 items_per_second=535.865M/s
+BM_MapFindMiss/swiss_swar8/live:1048576_median                    1.87 ns         1.87 ns            3 items_per_second=534.895M/s
+BM_MapFindMiss/swiss_swar8/live:1048576_stddev                   0.007 ns        0.007 ns            3 items_per_second=1.91077M/s
+BM_MapFindMiss/swiss_swar8/live:1048576_cv                        0.36 %          0.36 %             3 items_per_second=0.36%
+BM_MapFindMiss/swiss_swar8/live:3600000_mean                      8.64 ns         8.63 ns            3 items_per_second=115.915M/s
+BM_MapFindMiss/swiss_swar8/live:3600000_median                    8.63 ns         8.62 ns            3 items_per_second=115.97M/s
+BM_MapFindMiss/swiss_swar8/live:3600000_stddev                   0.059 ns        0.058 ns            3 items_per_second=775.743k/s
+BM_MapFindMiss/swiss_swar8/live:3600000_cv                        0.68 %          0.67 %             3 items_per_second=0.67%
+BM_MapFindMiss/swiss_sse2_16/live:4096_mean                       2.37 ns         2.37 ns            3 items_per_second=421.622M/s
+BM_MapFindMiss/swiss_sse2_16/live:4096_median                     2.37 ns         2.37 ns            3 items_per_second=421.631M/s
+BM_MapFindMiss/swiss_sse2_16/live:4096_stddev                    0.000 ns        0.000 ns            3 items_per_second=37.2079k/s
+BM_MapFindMiss/swiss_sse2_16/live:4096_cv                         0.02 %          0.01 %             3 items_per_second=0.01%
+BM_MapFindMiss/swiss_sse2_16/live:65536_mean                      2.42 ns         2.42 ns            3 items_per_second=413.319M/s
+BM_MapFindMiss/swiss_sse2_16/live:65536_median                    2.42 ns         2.42 ns            3 items_per_second=413.271M/s
+BM_MapFindMiss/swiss_sse2_16/live:65536_stddev                   0.002 ns        0.001 ns            3 items_per_second=143.196k/s
+BM_MapFindMiss/swiss_sse2_16/live:65536_cv                        0.08 %          0.03 %             3 items_per_second=0.03%
+BM_MapFindMiss/swiss_sse2_16/live:114000_mean                     8.14 ns         8.13 ns            3 items_per_second=123.039M/s
+BM_MapFindMiss/swiss_sse2_16/live:114000_median                   8.15 ns         8.14 ns            3 items_per_second=122.82M/s
+BM_MapFindMiss/swiss_sse2_16/live:114000_stddev                  0.264 ns        0.265 ns            3 items_per_second=4.02218M/s
+BM_MapFindMiss/swiss_sse2_16/live:114000_cv                       3.25 %          3.26 %             3 items_per_second=3.27%
+BM_MapFindMiss/swiss_sse2_16/live:1048576_mean                    2.95 ns         2.94 ns            3 items_per_second=339.774M/s
+BM_MapFindMiss/swiss_sse2_16/live:1048576_median                  2.95 ns         2.94 ns            3 items_per_second=339.814M/s
+BM_MapFindMiss/swiss_sse2_16/live:1048576_stddev                 0.004 ns        0.004 ns            3 items_per_second=448.484k/s
+BM_MapFindMiss/swiss_sse2_16/live:1048576_cv                      0.14 %          0.13 %             3 items_per_second=0.13%
+BM_MapFindMiss/swiss_sse2_16/live:3600000_mean                    8.23 ns         8.22 ns            3 items_per_second=121.73M/s
+BM_MapFindMiss/swiss_sse2_16/live:3600000_median                  8.17 ns         8.16 ns            3 items_per_second=122.547M/s
+BM_MapFindMiss/swiss_sse2_16/live:3600000_stddev                 0.110 ns        0.111 ns            3 items_per_second=1.63006M/s
+BM_MapFindMiss/swiss_sse2_16/live:3600000_cv                      1.33 %          1.35 %             3 items_per_second=1.34%
+BM_MapChurn/swiss_swar8/live:4096_mean                            3.32 ns         3.32 ns            3 items_per_second=301.454M/s rehashes=0
+BM_MapChurn/swiss_swar8/live:4096_median                          3.31 ns         3.31 ns            3 items_per_second=302.122M/s rehashes=0
+BM_MapChurn/swiss_swar8/live:4096_stddev                         0.021 ns        0.021 ns            3 items_per_second=1.88926M/s rehashes=0
+BM_MapChurn/swiss_swar8/live:4096_cv                              0.63 %          0.63 %             3 items_per_second=0.63% rehashes=0.00%
+BM_MapChurn/swiss_swar8/live:65536_mean                           4.41 ns         4.41 ns            3 items_per_second=226.977M/s rehashes=0
+BM_MapChurn/swiss_swar8/live:65536_median                         4.40 ns         4.40 ns            3 items_per_second=227.511M/s rehashes=0
+BM_MapChurn/swiss_swar8/live:65536_stddev                        0.019 ns        0.020 ns            3 items_per_second=1.01838M/s rehashes=0
+BM_MapChurn/swiss_swar8/live:65536_cv                             0.44 %          0.45 %             3 items_per_second=0.45% rehashes=0.00%
+BM_MapChurn/swiss_swar8/live:114000_mean                          4.79 ns         4.78 ns            3 items_per_second=209.056M/s rehashes=1
+BM_MapChurn/swiss_swar8/live:114000_median                        4.78 ns         4.78 ns            3 items_per_second=209.416M/s rehashes=1
+BM_MapChurn/swiss_swar8/live:114000_stddev                       0.035 ns        0.035 ns            3 items_per_second=1.5079M/s rehashes=0
+BM_MapChurn/swiss_swar8/live:114000_cv                            0.73 %          0.72 %             3 items_per_second=0.72% rehashes=0.00%
+BM_MapChurn/swiss_swar8/live:1048576_mean                         19.9 ns         19.9 ns            3 items_per_second=50.3768M/s rehashes=0
+BM_MapChurn/swiss_swar8/live:1048576_median                       19.9 ns         19.9 ns            3 items_per_second=50.2872M/s rehashes=0
+BM_MapChurn/swiss_swar8/live:1048576_stddev                      0.089 ns        0.082 ns            3 items_per_second=207.774k/s rehashes=0
+BM_MapChurn/swiss_swar8/live:1048576_cv                           0.45 %          0.41 %             3 items_per_second=0.41% rehashes=0.00%
+BM_MapChurn/swiss_swar8/live:3600000_mean                         26.8 ns         26.8 ns            3 items_per_second=37.3147M/s rehashes=1
+BM_MapChurn/swiss_swar8/live:3600000_median                       26.9 ns         26.8 ns            3 items_per_second=37.2811M/s rehashes=1
+BM_MapChurn/swiss_swar8/live:3600000_stddev                      0.061 ns        0.056 ns            3 items_per_second=78.5793k/s rehashes=0
+BM_MapChurn/swiss_swar8/live:3600000_cv                           0.23 %          0.21 %             3 items_per_second=0.21% rehashes=0.00%
+BM_MapChurn/swiss_sse2_16/live:4096_mean                          5.48 ns         5.47 ns            3 items_per_second=182.878M/s rehashes=0
+BM_MapChurn/swiss_sse2_16/live:4096_median                        5.49 ns         5.48 ns            3 items_per_second=182.411M/s rehashes=0
+BM_MapChurn/swiss_sse2_16/live:4096_stddev                       0.151 ns        0.151 ns            3 items_per_second=5.07314M/s rehashes=0
+BM_MapChurn/swiss_sse2_16/live:4096_cv                            2.76 %          2.76 %             3 items_per_second=2.77% rehashes=0.00%
+BM_MapChurn/swiss_sse2_16/live:65536_mean                         5.66 ns         5.65 ns            3 items_per_second=176.897M/s rehashes=0
+BM_MapChurn/swiss_sse2_16/live:65536_median                       5.67 ns         5.67 ns            3 items_per_second=176.489M/s rehashes=0
+BM_MapChurn/swiss_sse2_16/live:65536_stddev                      0.037 ns        0.037 ns            3 items_per_second=1.17M/s rehashes=0
+BM_MapChurn/swiss_sse2_16/live:65536_cv                           0.65 %          0.66 %             3 items_per_second=0.66% rehashes=0.00%
+BM_MapChurn/swiss_sse2_16/live:114000_mean                        6.41 ns         6.40 ns            3 items_per_second=156.295M/s rehashes=0
+BM_MapChurn/swiss_sse2_16/live:114000_median                      6.42 ns         6.42 ns            3 items_per_second=155.844M/s rehashes=0
+BM_MapChurn/swiss_sse2_16/live:114000_stddev                     0.112 ns        0.113 ns            3 items_per_second=2.75991M/s rehashes=0
+BM_MapChurn/swiss_sse2_16/live:114000_cv                          1.75 %          1.76 %             3 items_per_second=1.77% rehashes=0.00%
+BM_MapChurn/swiss_sse2_16/live:1048576_mean                       19.0 ns         18.9 ns            3 items_per_second=52.7876M/s rehashes=0
+BM_MapChurn/swiss_sse2_16/live:1048576_median                     18.8 ns         18.8 ns            3 items_per_second=53.2382M/s rehashes=0
+BM_MapChurn/swiss_sse2_16/live:1048576_stddev                    0.427 ns        0.408 ns            3 items_per_second=1.1242M/s rehashes=0
+BM_MapChurn/swiss_sse2_16/live:1048576_cv                         2.25 %          2.15 %             3 items_per_second=2.13% rehashes=0.00%
+BM_MapChurn/swiss_sse2_16/live:3600000_mean                       21.8 ns         21.8 ns            3 items_per_second=45.8733M/s rehashes=0
+BM_MapChurn/swiss_sse2_16/live:3600000_median                     21.9 ns         21.8 ns            3 items_per_second=45.8162M/s rehashes=0
+BM_MapChurn/swiss_sse2_16/live:3600000_stddev                    0.077 ns        0.074 ns            3 items_per_second=156.109k/s rehashes=0
+BM_MapChurn/swiss_sse2_16/live:3600000_cv                         0.35 %          0.34 %             3 items_per_second=0.34% rehashes=0.00%
+BM_AddOrderDecode/generic_fields_mean                             3891 ns         3886 ns            3 items_per_second=1.05395G/s
+BM_AddOrderDecode/generic_fields_median                           3893 ns         3888 ns            3 items_per_second=1.05352G/s
+BM_AddOrderDecode/generic_fields_stddev                           21.4 ns         22.2 ns            3 items_per_second=6.03234M/s
+BM_AddOrderDecode/generic_fields_cv                               0.55 %          0.57 %             3 items_per_second=0.57%
+BM_AddOrderDecode/scalar_movbe_mean                               4058 ns         4053 ns            3 items_per_second=1.01057G/s
+BM_AddOrderDecode/scalar_movbe_median                             4057 ns         4053 ns            3 items_per_second=1.01072G/s
+BM_AddOrderDecode/scalar_movbe_stddev                             12.7 ns         13.3 ns            3 items_per_second=3.32517M/s
+BM_AddOrderDecode/scalar_movbe_cv                                 0.31 %          0.33 %             3 items_per_second=0.33%
+BM_AddOrderDecode/ssse3_pshufb_mean                               5635 ns         5628 ns            3 items_per_second=727.762M/s
+BM_AddOrderDecode/ssse3_pshufb_median                             5627 ns         5619 ns            3 items_per_second=728.908M/s
+BM_AddOrderDecode/ssse3_pshufb_stddev                             23.0 ns         22.5 ns            3 items_per_second=2.90856M/s
+BM_AddOrderDecode/ssse3_pshufb_cv                                 0.41 %          0.40 %             3 items_per_second=0.40%
+BM_Engine_AddThenDelete_mean                                       130 ns          130 ns            3 items_per_second=15.4865M/s items = messages (2 per iteration)
+BM_Engine_AddThenDelete_median                                     127 ns          127 ns            3 items_per_second=15.7642M/s items = messages (2 per iteration)
+BM_Engine_AddThenDelete_stddev                                    9.36 ns         9.29 ns            3 items_per_second=1.08029M/s items = messages (2 per iteration)
+BM_Engine_AddThenDelete_cv                                        7.21 %          7.17 %             3 items_per_second=6.98% items = messages (2 per iteration)
+BM_Engine_PartialExecute_mean                                     10.5 ns         10.4 ns            3 items_per_second=95.7667M/s
+BM_Engine_PartialExecute_median                                   10.4 ns         10.4 ns            3 items_per_second=96.3038M/s
+BM_Engine_PartialExecute_stddev                                  0.106 ns        0.104 ns            3 items_per_second=950.143k/s
+BM_Engine_PartialExecute_cv                                       1.01 %          1.00 %             3 items_per_second=0.99%
+BM_Engine_Replace_mean                                             115 ns          115 ns            3 items_per_second=8.71511M/s
+BM_Engine_Replace_median                                           116 ns          116 ns            3 items_per_second=8.60192M/s
+BM_Engine_Replace_stddev                                          3.14 ns         3.13 ns            3 items_per_second=241.31k/s
+BM_Engine_Replace_cv                                              2.73 %          2.73 %             3 items_per_second=2.77%
+BM_Parse_ValidateOnly_mean                                        6.75 ms         6.74 ms            3 bytes_per_second=8.93062Gi/s items_per_second=309.003M/s
+BM_Parse_ValidateOnly_median                                      6.75 ms         6.74 ms            3 bytes_per_second=8.93123Gi/s items_per_second=309.024M/s
+BM_Parse_ValidateOnly_stddev                                     0.002 ms        0.001 ms            3 bytes_per_second=1.78178Mi/s items_per_second=60.2053k/s
+BM_Parse_ValidateOnly_cv                                          0.03 %          0.02 %             3 bytes_per_second=0.02% items_per_second=0.02%
+BM_Parse_BuildBooks_mean                                          74.9 ms         74.8 ms            3 bytes_per_second=823.94Mi/s items_per_second=27.8405M/s unknown_ref=0
+BM_Parse_BuildBooks_median                                        74.9 ms         74.8 ms            3 bytes_per_second=824.008Mi/s items_per_second=27.8428M/s unknown_ref=0
+BM_Parse_BuildBooks_stddev                                       0.119 ms        0.113 ms            3 bytes_per_second=1.24213Mi/s items_per_second=41.9708k/s unknown_ref=0
+BM_Parse_BuildBooks_cv                                            0.16 %          0.15 %             3 bytes_per_second=0.15% items_per_second=0.15% unknown_ref=0.00%
+BM_Parse_Prefetch/distance:0_mean                                  282 ms          281 ms            3 items_per_second=18.1189M/s
+BM_Parse_Prefetch/distance:0_median                                282 ms          281 ms            3 items_per_second=18.1174M/s
+BM_Parse_Prefetch/distance:0_stddev                              0.966 ms        0.928 ms            3 items_per_second=59.8083k/s
+BM_Parse_Prefetch/distance:0_cv                                   0.34 %          0.33 %             3 items_per_second=0.33%
+BM_Parse_Prefetch/distance:4_mean                                  188 ms          188 ms            3 items_per_second=27.0785M/s
+BM_Parse_Prefetch/distance:4_median                                189 ms          188 ms            3 items_per_second=27.0602M/s
+BM_Parse_Prefetch/distance:4_stddev                              0.311 ms        0.268 ms            3 items_per_second=38.5886k/s
+BM_Parse_Prefetch/distance:4_cv                                   0.17 %          0.14 %             3 items_per_second=0.14%
+BM_Parse_Prefetch/distance:8_mean                                  175 ms          175 ms            3 items_per_second=29.1639M/s
+BM_Parse_Prefetch/distance:8_median                                175 ms          174 ms            3 items_per_second=29.2139M/s
+BM_Parse_Prefetch/distance:8_stddev                              0.846 ms        0.836 ms            3 items_per_second=139.294k/s
+BM_Parse_Prefetch/distance:8_cv                                   0.48 %          0.48 %             3 items_per_second=0.48%
+BM_Parse_Prefetch/distance:16_mean                                 174 ms          173 ms            3 items_per_second=29.4131M/s
+BM_Parse_Prefetch/distance:16_median                               174 ms          173 ms            3 items_per_second=29.3794M/s
+BM_Parse_Prefetch/distance:16_stddev                              1.25 ms         1.17 ms            3 items_per_second=199.057k/s
+BM_Parse_Prefetch/distance:16_cv                                  0.72 %          0.68 %             3 items_per_second=0.68%
+BM_Parse_Prefetch/distance:32_mean                                 174 ms          174 ms            3 items_per_second=29.2768M/s
+BM_Parse_Prefetch/distance:32_median                               174 ms          174 ms            3 items_per_second=29.3658M/s
+BM_Parse_Prefetch/distance:32_stddev                              1.15 ms         1.14 ms            3 items_per_second=191.223k/s
+BM_Parse_Prefetch/distance:32_cv                                  0.66 %          0.66 %             3 items_per_second=0.65%
+BM_Parse_Prefetch/distance:64_mean                                 177 ms          177 ms            3 items_per_second=28.746M/s
+BM_Parse_Prefetch/distance:64_median                               177 ms          177 ms            3 items_per_second=28.8253M/s
+BM_Parse_Prefetch/distance:64_stddev                              1.56 ms         1.58 ms            3 items_per_second=254.594k/s
+BM_Parse_Prefetch/distance:64_cv                                  0.88 %          0.89 %             3 items_per_second=0.89%
+BM_Parse_PerMessage/iterations:3_mean                              146 ms          146 ms            3 items_per_second=14.2591M/s max_ns=119.378k p50_ns=0 p99.9_ns=236.338 p99_ns=167.004 timer_p50_ns=0
+BM_Parse_PerMessage/iterations:3_median                            145 ms          145 ms            3 items_per_second=14.354M/s max_ns=144.878k p50_ns=0 p99.9_ns=250.005 p99_ns=167.004 timer_p50_ns=0
+BM_Parse_PerMessage/iterations:3_stddev                           1.72 ms         1.70 ms            3 items_per_second=165.222k/s max_ns=45.0371k p50_ns=0 p99.9_ns=23.6719 p99_ns=4.0461u timer_p50_ns=0
+BM_Parse_PerMessage/iterations:3_cv                               1.18 %          1.17 %             3 items_per_second=1.16% max_ns=37.73% p50_ns=0.00% p99.9_ns=10.02% p99_ns=0.00% timer_p50_ns=0.00%
+BM_Replay_File/iterations:1                                 SKIPPED: 'set ITCH_FILE to a gunzipped Nasdaq ITCH 5.0 file'
+BM_Replay_File/iterations:1                                 SKIPPED: 'set ITCH_FILE to a gunzipped Nasdaq ITCH 5.0 file'
+BM_Replay_File/iterations:1                                 SKIPPED: 'set ITCH_FILE to a gunzipped Nasdaq ITCH 5.0 file'
+BM_Burst/gap_us:0/burst:256/iterations:300_mean                  0.016 ms        0.016 ms            3 head_max_ns=3.88942k head_p50_ns=0 head_p99_ns=166.337 items_per_second=15.6273M/s rest_p50_ns=0 rest_p99_ns=166.671 no PMU: hardware counters need Linux perf_event_open
+BM_Burst/gap_us:0/burst:256/iterations:300_median                0.016 ms        0.016 ms            3 head_max_ns=5.08412k head_p50_ns=0 head_p99_ns=166.004 items_per_second=15.6447M/s rest_p50_ns=0 rest_p99_ns=167.004 no PMU: hardware counters need Linux perf_event_open
+BM_Burst/gap_us:0/burst:256/iterations:300_stddev                0.000 ms        0.000 ms            3 head_max_ns=3.25205k head_p50_ns=0 head_p99_ns=0.577364 items_per_second=298.846k/s rest_p50_ns=0 rest_p99_ns=0.577364 no PMU: hardware counters need Linux perf_event_open
+BM_Burst/gap_us:0/burst:256/iterations:300_cv                     1.88 %          1.92 %             3 head_max_ns=83.61% head_p50_ns=0.00% head_p99_ns=0.35% items_per_second=1.91% rest_p50_ns=0.00% rest_p99_ns=0.35% no PMU: hardware counters need Linux perf_event_open
+BM_Burst/gap_us:100/burst:256/iterations:300_mean                0.122 ms        0.122 ms            3 head_max_ns=7.98652k head_p50_ns=41.0009 head_p99_ns=403.009 items_per_second=2.09755M/s rest_p50_ns=41.0009 rest_p99_ns=209.005 no PMU: hardware counters need Linux perf_event_open
+BM_Burst/gap_us:100/burst:256/iterations:300_median              0.122 ms        0.122 ms            3 head_max_ns=2.91707k head_p50_ns=41.0009 head_p99_ns=375.009 items_per_second=2.09601M/s rest_p50_ns=41.0009 rest_p99_ns=209.005 no PMU: hardware counters need Linux perf_event_open
+BM_Burst/gap_us:100/burst:256/iterations:300_stddev              0.000 ms        0.000 ms            3 head_max_ns=9.84617k head_p50_ns=0 head_p99_ns=87.432 items_per_second=4.55485k/s rest_p50_ns=0 rest_p99_ns=0 no PMU: hardware counters need Linux perf_event_open
+BM_Burst/gap_us:100/burst:256/iterations:300_cv                   0.16 %          0.22 %             3 head_max_ns=123.28% head_p50_ns=0.00% head_p99_ns=21.69% items_per_second=0.22% rest_p50_ns=0.00% rest_p99_ns=0.00% no PMU: hardware counters need Linux perf_event_open
+BM_Burst/gap_us:1000/burst:256/iterations:300_mean                1.03 ms         1.03 ms            3 head_max_ns=11.8336k head_p50_ns=42.001 head_p99_ns=849.686 items_per_second=247.766k/s rest_p50_ns=42.001 rest_p99_ns=571.68 no PMU: hardware counters need Linux perf_event_open
+BM_Burst/gap_us:1000/burst:256/iterations:300_median              1.04 ms         1.04 ms            3 head_max_ns=7.54217k head_p50_ns=42.001 head_p99_ns=875.02 items_per_second=247.333k/s rest_p50_ns=42.001 rest_p99_ns=711.016 no PMU: hardware counters need Linux perf_event_open
+BM_Burst/gap_us:1000/burst:256/iterations:300_stddev             0.004 ms        0.003 ms            3 head_max_ns=10.8835k head_p50_ns=0 head_p99_ns=211.148 items_per_second=795.197/s rest_p50_ns=0 rest_p99_ns=241.338 no PMU: hardware counters need Linux perf_event_open
+BM_Burst/gap_us:1000/burst:256/iterations:300_cv                  0.36 %          0.32 %             3 head_max_ns=91.97% head_p50_ns=0.00% head_p99_ns=24.85% items_per_second=0.32% rest_p50_ns=0.00% rest_p99_ns=42.22% no PMU: hardware counters need Linux perf_event_open
+BM_Burst/gap_us:10000/burst:256/iterations:300_mean               10.0 ms         10.0 ms            3 head_max_ns=24.2369k head_p50_ns=138.67 head_p99_ns=1.54304k items_per_second=25.5149k/s rest_p50_ns=97.6689 rest_p99_ns=765.684 no PMU: hardware counters need Linux perf_event_open
+BM_Burst/gap_us:10000/burst:256/iterations:300_median             10.0 ms         10.0 ms            3 head_max_ns=16.3754k head_p50_ns=125.003 head_p99_ns=1.33503k items_per_second=25.5145k/s rest_p50_ns=84.0019 rest_p99_ns=501.012 no PMU: hardware counters need Linux perf_event_open
+BM_Burst/gap_us:10000/burst:256/iterations:300_stddev            0.004 ms        0.001 ms            3 head_max_ns=27.0785k head_p50_ns=23.6719 head_p99_ns=512.699 items_per_second=1.93822/s rest_p50_ns=23.6719 rest_p99_ns=458.427 no PMU: hardware counters need Linux perf_event_open
+BM_Burst/gap_us:10000/burst:256/iterations:300_cv                 0.04 %          0.01 %             3 head_max_ns=111.72% head_p50_ns=17.07% head_p99_ns=33.23% items_per_second=0.01% rest_p50_ns=24.24% rest_p99_ns=59.87% no PMU: hardware counters need Linux perf_event_open
