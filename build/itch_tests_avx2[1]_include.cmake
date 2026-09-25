@@ -1,0 +1,26 @@
+if(EXISTS "/Users/zefiepie/Downloads/ITCH-feed-handler-main/build/itch_tests_avx2")
+  if(NOT EXISTS "/Users/zefiepie/Downloads/ITCH-feed-handler-main/build/itch_tests_avx2[1]_tests.cmake" OR
+     NOT "/Users/zefiepie/Downloads/ITCH-feed-handler-main/build/itch_tests_avx2[1]_tests.cmake" IS_NEWER_THAN "/Users/zefiepie/Downloads/ITCH-feed-handler-main/build/itch_tests_avx2" OR
+     NOT "/Users/zefiepie/Downloads/ITCH-feed-handler-main/build/itch_tests_avx2[1]_tests.cmake" IS_NEWER_THAN "${CMAKE_CURRENT_LIST_FILE}")
+    include("/Applications/CMake.app/Contents/share/cmake-3.28/Modules/GoogleTestAddTests.cmake")
+    gtest_discover_tests_impl(
+      TEST_EXECUTABLE [==[/Users/zefiepie/Downloads/ITCH-feed-handler-main/build/itch_tests_avx2]==]
+      TEST_EXECUTOR [==[]==]
+      TEST_WORKING_DIR [==[/Users/zefiepie/Downloads/ITCH-feed-handler-main/build]==]
+      TEST_EXTRA_ARGS [==[]==]
+      TEST_PROPERTIES [==[]==]
+      TEST_PREFIX [==[x86-64-v3.]==]
+      TEST_SUFFIX [==[]==]
+      TEST_FILTER [==[]==]
+      NO_PRETTY_TYPES [==[FALSE]==]
+      NO_PRETTY_VALUES [==[FALSE]==]
+      TEST_LIST [==[itch_tests_avx2_TESTS]==]
+      CTEST_FILE [==[/Users/zefiepie/Downloads/ITCH-feed-handler-main/build/itch_tests_avx2[1]_tests.cmake]==]
+      TEST_DISCOVERY_TIMEOUT [==[60]==]
+      TEST_XML_OUTPUT_DIR [==[]==]
+    )
+  endif()
+  include("/Users/zefiepie/Downloads/ITCH-feed-handler-main/build/itch_tests_avx2[1]_tests.cmake")
+else()
+  add_test(itch_tests_avx2_NOT_BUILT itch_tests_avx2_NOT_BUILT)
+endif()

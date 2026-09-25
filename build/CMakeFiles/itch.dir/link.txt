@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libitch.a CMakeFiles/itch.dir/src/itch/memory.cpp.o CMakeFiles/itch.dir/src/itch/order_book.cpp.o CMakeFiles/itch.dir/src/itch/perf_counters.cpp.o CMakeFiles/itch.dir/src/net/itch_file.cpp.o CMakeFiles/itch.dir/src/net/udp_receiver.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libitch.a
