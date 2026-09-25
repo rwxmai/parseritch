@@ -179,6 +179,9 @@ if(ITCH_BUILD_AVX2_VARIANT)
     itch_add_variant("_avx2" x86-64-v3)
 endif()
 
+add_executable(itch_synth tools/itch_synth_main.cpp)
+target_link_libraries(itch_synth PRIVATE itch)
+
 message(STATUS "itch: CXX=${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}, build=${CMAKE_BUILD_TYPE}, "
                "default -march=${ITCH_MARCH}, avx2 variant=${ITCH_BUILD_AVX2_VARIANT}, "
                "vector width<=${ITCH_PREFER_VECTOR_WIDTH}, scalar=${ITCH_FORCE_SCALAR}, "
