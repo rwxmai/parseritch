@@ -173,6 +173,8 @@ set(ITCH_TEST_SOURCES
     tests/test_histogram.cpp)
 set(ITCH_BENCH_SOURCES
     bench/bm_kernels.cpp
+    bench/bm_book.cpp
+    bench/bm_parse.cpp
     bench/bm_main.cpp)
 
 # One complete set of targets per ISA level. Each variant is its own set of
