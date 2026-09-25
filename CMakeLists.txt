@@ -112,6 +112,19 @@ find_package(Threads REQUIRED)
 # fetched at a pinned, hash-checked version.
 # ---------------------------------------------------------------------------
 include(FetchContent)
+if(ITCH_BUILD_TESTS)
+    find_package(GTest 1.12 QUIET)
+    if(NOT GTest_FOUND)
+        FetchContent_Declare(googletest
+            URL https://github.com/google/googletest/archive/refs/tags/v1.15.2.tar.gz
+            URL_HASH SHA256=7b42b4d6ed48810c5362c265a17faebe90dc2373c885e5216439d37927f02926
+            DOWNLOAD_EXTRACT_TIMESTAMP TRUE)
+        set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
+        FetchContent_MakeAvailable(googletest)
+    endif()
+    enable_testing()
+    include(GoogleTest)
+endif()
 
 # Can this machine run AVX2 binaries? Decides whether *_avx2 tests are
 # registered with CTest (building them is always fine).
@@ -126,6 +139,8 @@ endif()
 
 set(ITCH_LIB_SOURCES
     src/itch/memory.cpp)
+set(ITCH_TEST_SOURCES
+    tests/test_messages.cpp)
 
 # One complete set of targets per ISA level. Each variant is its own set of
 # binaries: mixing ISAs inside one binary would let the linker pick the wide
@@ -138,6 +153,17 @@ function(itch_add_variant suffix march)
     add_library(itch${suffix} STATIC ${ITCH_LIB_SOURCES})
     target_include_directories(itch${suffix} PUBLIC include)
     target_link_libraries(itch${suffix} PUBLIC itch_options${suffix} Threads::Threads)
+
+    if(ITCH_BUILD_TESTS)
+        add_executable(itch_tests${suffix} ${ITCH_TEST_SOURCES})
+        target_link_libraries(itch_tests${suffix} PRIVATE itch${suffix} GTest::gtest_main)
+        if(suffix STREQUAL "_avx2" AND NOT ITCH_HOST_RUNS_AVX2)
+            message(STATUS "itch: this machine cannot run AVX2; itch_tests_avx2 is built but not registered with CTest")
+        else()
+            gtest_discover_tests(itch_tests${suffix} DISCOVERY_MODE PRE_TEST DISCOVERY_TIMEOUT 60
+                                 TEST_PREFIX "${march}.")
+        endif()
+    endif()
 
 endfunction()
 
