@@ -172,6 +172,9 @@ function(itch_add_variant suffix march)
     target_include_directories(itch${suffix} PUBLIC include)
     target_link_libraries(itch${suffix} PUBLIC itch_options${suffix} Threads::Threads)
 
+    add_executable(feed_handler${suffix} tools/feed_handler_main.cpp)
+    target_link_libraries(feed_handler${suffix} PRIVATE itch${suffix})
+
     if(ITCH_BUILD_TESTS)
         add_executable(itch_tests${suffix} ${ITCH_TEST_SOURCES})
         target_link_libraries(itch_tests${suffix} PRIVATE itch${suffix} GTest::gtest_main)
