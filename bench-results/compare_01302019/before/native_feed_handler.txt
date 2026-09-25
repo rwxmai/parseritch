@@ -1,0 +1,30 @@
+replaying 01302019.NASDAQ_ITCH50 (11.25 GB)
+
+=== Session report (SSE4.1 kernels) ===
+  messages          368366634  (8.96 M msg/s over 41.128 s)
+  by type           S=6 R=8714 H=8805 Y=8821 L=193769 V=1 J=62 A=162970455 F=1725898 E=8096995 C=158886 X=4669874 D=158273361 U=27222746 P=1326184 Q=17430 B=116 I=3684511
+  malformed         unknown_type=0 bad_length=0 empty=0
+  book integrity    unknown_ref=0 missing_level=0 overfill=0
+  crossed updates   99 (during market hours)
+  live orders       end=0 peak=1742866 (map capacity 16777216, rehashes 0)
+  events            published=175209837 dropped=0
+replaying 01302019.NASDAQ_ITCH50 (11.25 GB)
+
+=== Session report (SSE4.1 kernels) ===
+  messages          368366634  (8.95 M msg/s over 41.148 s)
+  by type           S=6 R=8714 H=8805 Y=8821 L=193769 V=1 J=62 A=162970455 F=1725898 E=8096995 C=158886 X=4669874 D=158273361 U=27222746 P=1326184 Q=17430 B=116 I=3684511
+  malformed         unknown_type=0 bad_length=0 empty=0
+  book integrity    unknown_ref=0 missing_level=0 overfill=0
+  crossed updates   99 (during market hours)
+  live orders       end=0 peak=1742866 (map capacity 16777216, rehashes 0)
+  events            published=175209837 dropped=0
+replaying 01302019.NASDAQ_ITCH50 (11.25 GB)
+
+=== Session report (SSE4.1 kernels) ===
+  messages          368366634  (9.02 M msg/s over 40.845 s)
+  by type           S=6 R=8714 H=8805 Y=8821 L=193769 V=1 J=62 A=162970455 F=1725898 E=8096995 C=158886 X=4669874 D=158273361 U=27222746 P=1326184 Q=17430 B=116 I=3684511
+  malformed         unknown_type=0 bad_length=0 empty=0
+  book integrity    unknown_ref=0 missing_level=0 overfill=0
+  crossed updates   99 (during market hours)
+  live orders       end=0 peak=1742866 (map capacity 16777216, rehashes 0)
+  events            published=175209837 dropped=0

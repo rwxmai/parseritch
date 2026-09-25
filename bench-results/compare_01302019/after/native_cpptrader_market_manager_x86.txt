@@ -1,0 +1,72 @@
+ITCH processing...Done!
+
+Errors: 0
+
+Processing time: 1:16.263 m
+Total ITCH messages: 368366634
+ITCH message latency: 207 ns
+ITCH message throughput: 4830207 msg/s
+Total market updates: 788955229
+Market update latency: 96 ns
+Market update throughput: 10345175 upd/s
+
+Market statistics: 
+Max symbols: 8713
+Max order books: 8713
+Max order book levels: 3143
+Max order book orders: 3049
+Max orders: 1742866
+
+Order statistics: 
+Add order operations: 191919099
+Update order operations: 6502763
+Delete order operations: 191919099
+Execute order operations: 8255881
+ITCH processing...Done!
+
+Errors: 0
+
+Processing time: 1:18.264 m
+Total ITCH messages: 368366634
+ITCH message latency: 212 ns
+ITCH message throughput: 4706711 msg/s
+Total market updates: 788955229
+Market update latency: 99 ns
+Market update throughput: 10080675 upd/s
+
+Market statistics: 
+Max symbols: 8713
+Max order books: 8713
+Max order book levels: 3143
+Max order book orders: 3049
+Max orders: 1742866
+
+Order statistics: 
+Add order operations: 191919099
+Update order operations: 6502763
+Delete order operations: 191919099
+Execute order operations: 8255881
+ITCH processing...Done!
+
+Errors: 0
+
+Processing time: 1:19.727 m
+Total ITCH messages: 368366634
+ITCH message latency: 216 ns
+ITCH message throughput: 4620317 msg/s
+Total market updates: 788955229
+Market update latency: 101 ns
+Market update throughput: 9895639 upd/s
+
+Market statistics: 
+Max symbols: 8713
+Max order books: 8713
+Max order book levels: 3143
+Max order book orders: 3049
+Max orders: 1742866
+
+Order statistics: 
+Add order operations: 191919099
+Update order operations: 6502763
+Delete order operations: 191919099
+Execute order operations: 8255881

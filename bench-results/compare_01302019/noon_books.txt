@@ -1,0 +1,36 @@
+RESULT lib=parseritch mode=book arch=x86_64 msgs=151453346 secs=11.548362 ns_per_msg=76.250 mmsg_s=13.115 gib_s=0.373 checksum=0 peak_rss_mib=4839 live_orders=1642242 unknown_ref=0 missing_level=0
+BBO lib=parseritch sym=AAPL bid=101@162.3000 ask=400@162.3100
+BBO lib=parseritch sym=MSFT bid=700@105.4700 ask=400@105.4800
+BBO lib=parseritch sym=AMZN bid=3@1647.0600 ask=10@1647.4500
+BBO lib=parseritch sym=SPY bid=1210@265.8100 ask=500@265.8200
+BBO lib=parseritch sym=QQQ bid=1365@163.8000 ask=400@163.8100
+BBO lib=parseritch sym=TSLA bid=106@300.1400 ask=48@300.2800
+BBO lib=parseritch sym=NVDA bid=7@134.0100 ask=100@134.0500
+BBO lib=parseritch sym=INTC bid=1335@46.7700 ask=2001@46.7800
+RESULT lib=itchcpp mode=book arch=arm64 msgs=151453346 secs=18.663193 ns_per_msg=123.227 mmsg_s=8.115 gib_s=0.231 checksum=0 peak_rss_mib=4701 books=8695
+BBO lib=itchcpp sym=AAPL bid=101@162.3000 ask=400@162.3100
+BBO lib=itchcpp sym=MSFT bid=700@105.4700 ask=400@105.4800
+BBO lib=itchcpp sym=AMZN bid=3@1647.0600 ask=10@1647.4500
+BBO lib=itchcpp sym=SPY bid=1210@265.8100 ask=500@265.8200
+BBO lib=itchcpp sym=QQQ bid=1365@163.8000 ask=400@163.8100
+BBO lib=itchcpp sym=TSLA bid=106@300.1400 ask=48@300.2800
+BBO lib=itchcpp sym=NVDA bid=7@134.0100 ask=100@134.0500
+BBO lib=itchcpp sym=INTC bid=1335@46.7700 ask=2001@46.7800
+RESULT lib=cpptrader mode=book arch=arm64 msgs=151453346 secs=22.962043 ns_per_msg=151.611 mmsg_s=6.596 gib_s=0.188 checksum=0 peak_rss_mib=4854 unknown=0 updates=325348995
+BBO lib=cpptrader sym=AAPL bid=101@162.3000 ask=400@162.3100
+BBO lib=cpptrader sym=MSFT bid=700@105.4700 ask=400@105.4800
+BBO lib=cpptrader sym=AMZN bid=3@1647.0600 ask=10@1647.4500
+BBO lib=cpptrader sym=SPY bid=1210@265.8100 ask=500@265.8200
+BBO lib=cpptrader sym=QQQ bid=1365@163.8000 ask=400@163.8100
+BBO lib=cpptrader sym=TSLA bid=106@300.1400 ask=48@300.2800
+BBO lib=cpptrader sym=NVDA bid=7@134.0100 ask=100@134.0500
+BBO lib=cpptrader sym=INTC bid=1335@46.7700 ask=2001@46.7800
+RESULT lib=ccooper mode=book arch=arm64 msgs=151453346 secs=4.348822 ns_per_msg=28.714 mmsg_s=34.826 gib_s=0.990 checksum=0 peak_rss_mib=8641
+BBO lib=ccooper sym=AAPL bid=101@162.3000 ask=400@162.3100
+BBO lib=ccooper sym=MSFT bid=700@105.4700 ask=400@105.4800
+BBO lib=ccooper sym=AMZN bid=3@1647.0600 ask=10@1647.4500
+BBO lib=ccooper sym=SPY bid=1210@265.8100 ask=500@265.8200
+BBO lib=ccooper sym=QQQ bid=1365@163.8000 ask=400@163.8100
+BBO lib=ccooper sym=TSLA bid=106@300.1400 ask=48@300.2800
+BBO lib=ccooper sym=NVDA bid=7@134.0100 ask=100@134.0500
+BBO lib=ccooper sym=INTC bid=1335@46.7700 ask=2001@46.7800
