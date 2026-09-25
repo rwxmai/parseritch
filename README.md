@@ -1,4 +1,4 @@
-# ITCH 5.0 Feed Handler: SIMD Order Books in C++20
+# Another ITCH Feed Handler
 
 ![C++20](https://img.shields.io/badge/C%2B%2B-20-blue.svg)
 ![x86-64](https://img.shields.io/badge/arch-x86--64%20(SSE4.2%20default%2C%20AVX2%20opt--in)-lightgrey.svg)
@@ -14,14 +14,6 @@ symbol from a single global order map, and publishes top-of-book changes
 through a seqlock cache and a lock-free SPSC ring. Input is a Nasdaq binary
 file, a MoldUDP64 feed on a UDP socket, or a MoldUDP64 feed received through
 AF_XDP kernel bypass.
-
-> **Performance numbers are pending.** The previous README quoted figures
-> (e.g. "97.6 ns book update, 8x faster than Aquis") that came from a 500K-message
-> synthetic corpus, a benchmark that timed a delete + add as one "add", and a
-> histogram of per-pass averages. The book those numbers came from also could
-> not hold a real trading day (see [what changed](#what-changed-from-v1)). New
-> numbers will be published from the free Nasdaq full-day files on native x86
-> hardware, using the method in [Benchmarking](#benchmarking).
 
 ---
 
@@ -315,59 +307,3 @@ tools/pgo.sh  [TRAIN_FILE [EVAL_FILE]]     # instrument, train, rebuild (GCC or 
 tools/bolt.sh [--lbr] [TRAIN [EVAL]]      # post-link layout with llvm-bolt (Linux)
 cmake -B build-lto -DITCH_LTO=ON          # link-time optimisation
 ```
-
-Train and evaluate on different sessions (different days for real data).
-
-For publishable numbers:
-
-- native x86 Linux on bare metal (cloud VMs are noisy and often hide PMU
-  counters);
-- `performance` governor, turbo off, the benchmark pinned with `taskset`;
-- 10+ repetitions;
-- `perf stat -e cycles,instructions,cache-misses,branch-misses`, or
-  `tools/license_check.sh`, next to each timing;
-- report the CPU model and which build (default or `_avx2`) produced each number.
-
----
-
-## What changed from v1
-
-The original version (v1, which predates this repository) had these
-problems, all fixed:
-
-| v1 | Now |
-|---|---|
-| 4.05 MiB `OrderBook` x 65536 locates = **259 GiB** allocated and zeroed at startup | One global order map + small lazy per-symbol level arrays |
-| README claimed "AVX2 SIMD level search", but the code used a scalar binary search | Real SIMD level search (SSE2/SSE4.1/AVX2) with scalar references |
-| AVX2 `find_order` loaded 4 scattered slots with scalar loads, then did 1 vector compare | Swiss-table groups: one aligned load checks 16-32 contiguous tags |
-| "Producer caches consumer head" claimed, not implemented | Cached indices on both sides, plus batch pop |
-| BBO cache could return torn snapshots | Seqlock |
-| `std::function` callbacks on the hot path | Compile-time handler binding |
-| No length validation: a short frame caused an out-of-bounds read | Exact per-type length check before decode |
-| Zero-length record shifted framing by one byte | Fixed and tested |
-| 12 of 23 message handlers were empty stubs; `I` (NOII) was decoded as a non-existent "IPO Allocation"; `F` dropped its MPID | All 23 decoded per spec, one field table per message |
-| Live UDP path skipped the MoldUDP64 header | MoldUDP64 sequencer with gap detection, A/B dedup and session changes |
-| AF_XDP path loaded no BPF program (redirecting *all* traffic on the queue), passed Ethernet frames to the parser, refilled the wrong frames, never joined the group | Own filtering BPF program, header-validating frame parser, correct frame recycling, multicast join; end-to-end self-test |
-| `MAP_HUGETLB` on a file mapping (always fails); `MADV_SEQUENTIAL \| MADV_WILLNEED` (enum OR) | Correct `mmap`/`madvise` usage |
-| Symbol lookup hashed unpadded input against padded keys (never matched) | Fixed `SymbolDirectory` |
-| `-march=native` everywhere, AVX-512 on the roadmap | 128-bit default, AVX2 as a measured opt-in, no AVX-512 |
-
----
-
-## Status and next steps
-
-The previous roadmap is done: frequency-aware build defaults and
-measurement, the prefetch pipeline, depth profiling for the back-scan length,
-PGO/LTO/BOLT pipelines, and the AF_XDP receive path. What needs real
-hardware next:
-
-- **Numbers.** Replay the Nasdaq full-day files on bare-metal x86; publish
-  throughput and per-message latency for the default and AVX2 builds.
-- **Decide AVX2 from data.** `BM_Burst` head-vs-rest latency and
-  `license_check.sh` counters on the target CPU.
-- **Tune from real sessions.** Set `ITCH_LEVEL_LINEAR_CHUNKS` from
-  `--depth-profile`; pick the prefetch distance from `BM_Parse_Prefetch` /
-  `--prefetch`.
-- **AF_XDP on a real NIC.** The self-test covers generic (SKB) mode on veth.
-  Driver mode and zero-copy need a supported NIC; NIC receive timestamps
-  through XDP RX metadata (Linux 6.3+) are not wired up yet.
