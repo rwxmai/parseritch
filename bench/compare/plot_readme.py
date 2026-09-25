@@ -5,7 +5,7 @@
 
 RESULTS_DIR holds results.txt (run_all.sh), session_*.csv (session_profile)
 and engine.json (bm_itch --benchmark_filter=BM_Engine_ --benchmark_out=...).
-Writes perf_overview.png and perf_session.png into OUT_DIR.
+Writes perf_overview.png, perf_session.png and perf_vendors.png into OUT_DIR.
 """
 import csv
 import glob
@@ -107,6 +107,54 @@ for s in ("top", "right"):
     ax.spines[s].set_visible(False)
 fig.tight_layout()
 fig.savefig(f"{out}/perf_session.png", dpi=160)
+
+# ---- published vendor figures next to ours, on one time scale -----------------
+# (label, ns, what it measures, kind). Vendor numbers are as published, not
+# reproduced; sources are listed in the README table.
+FPGA, SOFT = "#58a6ff", ACCENT
+vendors = [
+    ("parseritch: header-only walk", m[("parseritch", "frames", x86)], "compute per msg, replay", "ours"),
+    ("parseritch: parse", m[("parseritch", "parse", x86)], "compute per msg, replay", "ours"),
+    ("Exegy + AMD (STAC-T0)", 13.9, "tick-to-trade, network I/O only", "fpga"),
+    ("Fractal FPGA ITCH parser", 24.8, "parse: last byte in -> decoded", "fpga"),
+    ("parseritch: full-depth books", m[("parseritch", "book_pf16", x86)], "compute per msg, replay", "ours"),
+    ("Exegy Nexus", 350, "< 350 ns, respond to aggregated data", "fpga"),
+    ("NovaSparks NovaTick", 750, "ITCH + books, wire -> FPGA core", "fpga"),
+    ("NovaSparks NovaTick", 1250, "ITCH + books, wire -> server memory", "fpga"),
+    ("Tickerplant (open source)", 2455, "ITCH wire -> book, p50", "soft"),
+    ("Redline InRush 3 (STAC-T1)", 5200, "tick-to-trade, mean", "soft"),
+    ("Aquis matching engine", 17000, "<= 17 us port-to-port, p99.99", "soft"),
+]
+colour = {"ours": OURS, "fpga": FPGA, "soft": SOFT}
+vendors.sort(key=lambda r: r[1])
+
+fig, ax = plt.subplots(figsize=(13, 5.8))
+names = [r[0] for r in vendors][::-1]
+vals = [r[1] for r in vendors][::-1]
+bars = ax.barh(range(len(vals)), vals, color=[colour[r[3]] for r in vendors][::-1], height=0.62)
+ax.set_yticks(range(len(vals)), names)
+ax.set_xscale("log")
+ax.set_xlim(1, 1e6)
+ax.set_xticks([1, 10, 100, 1e3, 1e4, 1e5, 1e6], ["1 ns", "10 ns", "100 ns", "1 us", "10 us", "100 us", "1 ms"])
+for b, r in zip(bars, vendors[::-1]):
+    v = r[1]
+    shown = (f"{v / 1000:g} us" if v >= 1000 else f"{v:g} ns") if r[3] != "ours" else f"{v:.1f} ns"
+    ax.text(v * 1.12, b.get_y() + b.get_height() / 2, f"{shown}   {r[2]}", va="center", color=FG, fontsize=8.5)
+ax.set_title("parseritch next to published figures (vendors' own numbers, not reproduced)",
+             color=FG, fontsize=11, loc="left")
+ax.set_xlabel("time, log scale (lower is better within the same kind of measurement)")
+ax.grid(axis="x", alpha=0.6, which="major")
+ax.set_axisbelow(True)
+for s in ("top", "right"):
+    ax.spines[s].set_visible(False)
+from matplotlib.patches import Patch  # noqa: E402
+
+ax.legend(handles=[Patch(color=OURS, label="parseritch: compute per message (no network)"),
+                   Patch(color=FPGA, label="FPGA / hardware: includes the network path"),
+                   Patch(color=SOFT, label="software / matching engine: includes the network path")],
+          loc="upper right", facecolor=BG, edgecolor=GRID, labelcolor=FG, fontsize=8.5)
+fig.tight_layout()
+fig.savefig(f"{out}/perf_vendors.png", dpi=160)
 
 # ---- engine microbenchmarks (printed for the README table) --------------------
 for b in json.load(open(f"{src}/engine.json"))["benchmarks"]:
