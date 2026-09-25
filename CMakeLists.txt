@@ -141,6 +141,7 @@ set(ITCH_LIB_SOURCES
     src/itch/memory.cpp)
 set(ITCH_TEST_SOURCES
     tests/test_level_search.cpp
+    tests/test_block_move.cpp
     tests/test_group.cpp
     tests/test_order_map.cpp
     tests/test_messages.cpp
