@@ -1,0 +1,5 @@
+# Local CMake build trees (build/ predates this file and is still tracked)
+/build-*/
+
+# Compiled cross-library benchmark runners (bench/compare/build.sh)
+/bench/compare/bin/

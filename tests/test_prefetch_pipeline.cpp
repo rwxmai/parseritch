@@ -53,6 +53,50 @@ TEST(PrefetchPipeline, IdenticalResultsForEveryDistance) {
     EXPECT_EQ(used64, used0);
 }
 
+/// Books only locates 3 and 17, through BookBuilder's forwarding of wants().
+struct TwoSymbols {
+    bool wants(uint8_t, uint16_t locate) const { return locate == 3 || locate == 17; }
+};
+
+template <std::size_t Distance>
+Snapshot run_filtered(const std::vector<uint8_t>& stream, std::size_t stop, uint32_t symbols,
+                      uint64_t* filtered) {
+    BookEngine engine(1 << 12);
+    TwoSymbols sink;
+    BookBuilder<TwoSymbols> builder(engine, sink);
+    Parser<BookBuilder<TwoSymbols>> p(builder);
+    if constexpr (Distance == 0) p.parse_stream(stream.data(), stop);
+    else                         p.template parse_stream_prefetch<Distance>(stream.data(), stop);
+    *filtered = p.stats().filtered;
+    Snapshot s{p.stats().messages, p.stats().bad_length, engine.stats().unknown_ref,
+               engine.orders().size(), {}};
+    for (uint32_t loc = 1; loc <= symbols; ++loc) s.tops.push_back(engine.book(static_cast<uint16_t>(loc)).top());
+    return s;
+}
+
+TEST(PrefetchPipeline, LocateFilterKeepsWantedBooksExact) {
+    sim::SyntheticFeedConfig cfg;
+    cfg.symbols = 32;
+    cfg.events = 100'000;
+    const auto stream = sim::SyntheticFeed(cfg).build();
+    const std::size_t stop = stream.size() / 2;
+    const auto full = run<0>(stream, stop, cfg.symbols);
+    for (const bool prefetch : {false, true}) {
+        uint64_t filtered = 0;
+        const auto f = prefetch ? run_filtered<16>(stream, stop, cfg.symbols, &filtered)
+                                : run_filtered<0>(stream, stop, cfg.symbols, &filtered);
+        EXPECT_EQ(f.messages, full.messages);
+        EXPECT_GT(filtered, 0u);
+        EXPECT_EQ(f.unknown_ref, 0u);  // no dangling references from the other books
+        EXPECT_LT(f.live, full.live);
+        for (uint32_t loc = 1; loc <= cfg.symbols; ++loc) {
+            const TopOfBook want = (loc == 3 || loc == 17) ? full.tops[loc - 1] : TopOfBook{};
+            EXPECT_EQ(f.tops[loc - 1], want) << "locate " << loc << " prefetch " << prefetch;
+        }
+        EXPECT_NE(f.tops[2], TopOfBook{});  // the comparison has teeth
+    }
+}
+
 TEST(PrefetchPipeline, TinyAndMalformedInputs) {
     // Empty buffer, a lone length prefix, and a short 'A' record (the hint
     // must not read past it; the parser must still reject it).

@@ -1,0 +1,296 @@
+rep=1 RESULT lib=parseritch mode=parse arch=x86_64 msgs=368366634 secs=2.915188 ns_per_msg=7.914 mmsg_s=126.361 gib_s=3.593 checksum=6978933964257042231 peak_rss_mib=10729
+rep=2 RESULT lib=parseritch mode=parse arch=x86_64 msgs=368366634 secs=2.658263 ns_per_msg=7.216 mmsg_s=138.574 gib_s=3.940 checksum=6978933964257042231 peak_rss_mib=10729
+rep=3 RESULT lib=parseritch mode=parse arch=x86_64 msgs=368366634 secs=2.672575 ns_per_msg=7.255 mmsg_s=137.832 gib_s=3.919 checksum=6978933964257042231 peak_rss_mib=10729
+rep=1 RESULT lib=parseritch mode=parse arch=x86_64 msgs=368366634 secs=2.635924 ns_per_msg=7.156 mmsg_s=139.749 gib_s=3.973 checksum=6978933964257042231 peak_rss_mib=10729
+rep=2 RESULT lib=parseritch mode=parse arch=x86_64 msgs=368366634 secs=2.737043 ns_per_msg=7.430 mmsg_s=134.586 gib_s=3.827 checksum=6978933964257042231 peak_rss_mib=10729
+rep=3 RESULT lib=parseritch mode=parse arch=x86_64 msgs=368366634 secs=2.619136 ns_per_msg=7.110 mmsg_s=140.644 gib_s=3.999 checksum=6978933964257042231 peak_rss_mib=10729
+rep=1 RESULT lib=parseritch mode=book arch=x86_64 msgs=368366634 secs=29.299612 ns_per_msg=79.539 mmsg_s=12.572 gib_s=0.357 checksum=0 peak_rss_mib=11152 live_orders=0 unknown_ref=0 missing_level=0
+rep=1 BBO lib=parseritch sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=2 RESULT lib=parseritch mode=book arch=x86_64 msgs=368366634 secs=28.639420 ns_per_msg=77.747 mmsg_s=12.862 gib_s=0.366 checksum=0 peak_rss_mib=11153 live_orders=0 unknown_ref=0 missing_level=0
+rep=2 BBO lib=parseritch sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=3 RESULT lib=parseritch mode=book arch=x86_64 msgs=368366634 secs=28.380241 ns_per_msg=77.043 mmsg_s=12.980 gib_s=0.369 checksum=0 peak_rss_mib=11154 live_orders=0 unknown_ref=0 missing_level=0
+rep=3 BBO lib=parseritch sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=1 RESULT lib=parseritch mode=book arch=x86_64 msgs=368366634 secs=37.468474 ns_per_msg=101.715 mmsg_s=9.831 gib_s=0.280 checksum=0 peak_rss_mib=11154 live_orders=0 unknown_ref=0 missing_level=0
+rep=1 BBO lib=parseritch sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=2 RESULT lib=parseritch mode=book arch=x86_64 msgs=368366634 secs=37.046397 ns_per_msg=100.569 mmsg_s=9.943 gib_s=0.283 checksum=0 peak_rss_mib=11154 live_orders=0 unknown_ref=0 missing_level=0
+rep=2 BBO lib=parseritch sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=3 RESULT lib=parseritch mode=book arch=x86_64 msgs=368366634 secs=37.137492 ns_per_msg=100.817 mmsg_s=9.919 gib_s=0.282 checksum=0 peak_rss_mib=11153 live_orders=0 unknown_ref=0 missing_level=0
+rep=3 BBO lib=parseritch sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=1 RESULT lib=parseritch mode=book_pf16 arch=x86_64 msgs=368366634 secs=16.126237 ns_per_msg=43.778 mmsg_s=22.843 gib_s=0.649 checksum=0 peak_rss_mib=11154 live_orders=0 unknown_ref=0 missing_level=0
+rep=1 BBO lib=parseritch sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=2 RESULT lib=parseritch mode=book_pf16 arch=x86_64 msgs=368366634 secs=16.020527 ns_per_msg=43.491 mmsg_s=22.993 gib_s=0.654 checksum=0 peak_rss_mib=11154 live_orders=0 unknown_ref=0 missing_level=0
+rep=2 BBO lib=parseritch sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=3 RESULT lib=parseritch mode=book_pf16 arch=x86_64 msgs=368366634 secs=16.448432 ns_per_msg=44.652 mmsg_s=22.395 gib_s=0.637 checksum=0 peak_rss_mib=11154 live_orders=0 unknown_ref=0 missing_level=0
+rep=3 BBO lib=parseritch sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=1 RESULT lib=parseritch mode=book_pf16 arch=x86_64 msgs=368366634 secs=21.319075 ns_per_msg=57.875 mmsg_s=17.279 gib_s=0.491 checksum=0 peak_rss_mib=11154 live_orders=0 unknown_ref=0 missing_level=0
+rep=1 BBO lib=parseritch sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=parseritch sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=2 RESULT lib=parseritch mode=book_pf16 arch=x86_64 msgs=368366634 secs=21.290838 ns_per_msg=57.798 mmsg_s=17.302 gib_s=0.492 checksum=0 peak_rss_mib=11154 live_orders=0 unknown_ref=0 missing_level=0
+rep=2 BBO lib=parseritch sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=parseritch sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=3 RESULT lib=parseritch mode=book_pf16 arch=x86_64 msgs=368366634 secs=20.887313 ns_per_msg=56.703 mmsg_s=17.636 gib_s=0.501 checksum=0 peak_rss_mib=11153 live_orders=0 unknown_ref=0 missing_level=0
+rep=3 BBO lib=parseritch sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=parseritch sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=1 RESULT lib=itchcpp mode=parse arch=x86_64 msgs=368366634 secs=4.669348 ns_per_msg=12.676 mmsg_s=78.890 gib_s=2.243 checksum=6978933964257042231 peak_rss_mib=10728
+rep=2 RESULT lib=itchcpp mode=parse arch=x86_64 msgs=368366634 secs=4.136407 ns_per_msg=11.229 mmsg_s=89.055 gib_s=2.532 checksum=6978933964257042231 peak_rss_mib=10728
+rep=3 RESULT lib=itchcpp mode=parse arch=x86_64 msgs=368366634 secs=3.841776 ns_per_msg=10.429 mmsg_s=95.884 gib_s=2.726 checksum=6978933964257042231 peak_rss_mib=10728
+rep=1 RESULT lib=itchcpp mode=overlay arch=x86_64 msgs=368366634 secs=1.016331 ns_per_msg=2.759 mmsg_s=362.448 gib_s=10.305 checksum=6978933964257042231 peak_rss_mib=10728
+rep=2 RESULT lib=itchcpp mode=overlay arch=x86_64 msgs=368366634 secs=1.016298 ns_per_msg=2.759 mmsg_s=362.459 gib_s=10.306 checksum=6978933964257042231 peak_rss_mib=10728
+rep=3 RESULT lib=itchcpp mode=overlay arch=x86_64 msgs=368366634 secs=1.014811 ns_per_msg=2.755 mmsg_s=362.991 gib_s=10.321 checksum=6978933964257042231 peak_rss_mib=10728
+rep=1 RESULT lib=itchcpp mode=book arch=x86_64 msgs=368366634 secs=60.380541 ns_per_msg=163.914 mmsg_s=6.101 gib_s=0.173 checksum=0 peak_rss_mib=11024 books=8695
+rep=1 BBO lib=itchcpp sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=itchcpp sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=itchcpp sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=itchcpp sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=itchcpp sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=itchcpp sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=itchcpp sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=itchcpp sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=2 RESULT lib=itchcpp mode=book arch=x86_64 msgs=368366634 secs=60.812837 ns_per_msg=165.088 mmsg_s=6.057 gib_s=0.172 checksum=0 peak_rss_mib=11019 books=8695
+rep=2 BBO lib=itchcpp sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=itchcpp sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=itchcpp sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=itchcpp sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=itchcpp sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=itchcpp sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=itchcpp sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=itchcpp sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=3 RESULT lib=itchcpp mode=book arch=x86_64 msgs=368366634 secs=60.669948 ns_per_msg=164.700 mmsg_s=6.072 gib_s=0.173 checksum=0 peak_rss_mib=11021 books=8695
+rep=3 BBO lib=itchcpp sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=itchcpp sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=itchcpp sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=itchcpp sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=itchcpp sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=itchcpp sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=itchcpp sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=itchcpp sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=1 RESULT lib=cpptrader mode=parse arch=x86_64 msgs=368366634 secs=3.981225 ns_per_msg=10.808 mmsg_s=92.526 gib_s=2.631 checksum=1008162892712547 peak_rss_mib=10729 unknown=0
+rep=2 RESULT lib=cpptrader mode=parse arch=x86_64 msgs=368366634 secs=5.186547 ns_per_msg=14.080 mmsg_s=71.023 gib_s=2.019 checksum=1008162892712547 peak_rss_mib=10729 unknown=0
+rep=3 RESULT lib=cpptrader mode=parse arch=x86_64 msgs=368366634 secs=3.911134 ns_per_msg=10.618 mmsg_s=94.184 gib_s=2.678 checksum=1008162892712547 peak_rss_mib=10729 unknown=0
+rep=1 RESULT lib=cpptrader mode=book arch=x86_64 msgs=368366634 secs=81.025708 ns_per_msg=219.959 mmsg_s=4.546 gib_s=0.129 checksum=0 peak_rss_mib=11193 unknown=0 updates=788955229
+rep=1 BBO lib=cpptrader sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=cpptrader sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=cpptrader sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=cpptrader sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=cpptrader sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=cpptrader sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=cpptrader sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=cpptrader sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=2 RESULT lib=cpptrader mode=book arch=x86_64 msgs=368366634 secs=84.735395 ns_per_msg=230.030 mmsg_s=4.347 gib_s=0.124 checksum=0 peak_rss_mib=11204 unknown=0 updates=788955229
+rep=2 BBO lib=cpptrader sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=cpptrader sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=cpptrader sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=cpptrader sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=cpptrader sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=cpptrader sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=cpptrader sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=cpptrader sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=3 RESULT lib=cpptrader mode=book arch=x86_64 msgs=368366634 secs=81.766775 ns_per_msg=221.971 mmsg_s=4.505 gib_s=0.128 checksum=0 peak_rss_mib=11205 unknown=0 updates=788955229
+rep=3 BBO lib=cpptrader sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=cpptrader sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=cpptrader sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=cpptrader sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=cpptrader sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=cpptrader sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=cpptrader sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=cpptrader sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=1 RESULT lib=ccooper mode=book arch=x86_64 msgs=368366634 secs=16.524177 ns_per_msg=44.858 mmsg_s=22.293 gib_s=0.634 checksum=0 peak_rss_mib=13297
+rep=1 BBO lib=ccooper sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=ccooper sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=ccooper sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=ccooper sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=ccooper sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=ccooper sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=ccooper sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=ccooper sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=2 RESULT lib=ccooper mode=book arch=x86_64 msgs=368366634 secs=16.594614 ns_per_msg=45.049 mmsg_s=22.198 gib_s=0.631 checksum=0 peak_rss_mib=13260
+rep=2 BBO lib=ccooper sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=ccooper sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=ccooper sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=ccooper sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=ccooper sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=ccooper sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=ccooper sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=ccooper sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=3 RESULT lib=ccooper mode=book arch=x86_64 msgs=368366634 secs=16.336914 ns_per_msg=44.350 mmsg_s=22.548 gib_s=0.641 checksum=0 peak_rss_mib=13514
+rep=3 BBO lib=ccooper sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=ccooper sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=ccooper sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=ccooper sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=ccooper sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=ccooper sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=ccooper sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=ccooper sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=1 RESULT lib=itchcpp mode=parse arch=arm64 msgs=368366634 secs=2.122348 ns_per_msg=5.762 mmsg_s=173.566 gib_s=4.935 checksum=6978933964257042231 peak_rss_mib=10726
+rep=2 RESULT lib=itchcpp mode=parse arch=arm64 msgs=368366634 secs=2.141081 ns_per_msg=5.812 mmsg_s=172.047 gib_s=4.892 checksum=6978933964257042231 peak_rss_mib=10726
+rep=3 RESULT lib=itchcpp mode=parse arch=arm64 msgs=368366634 secs=2.132977 ns_per_msg=5.790 mmsg_s=172.701 gib_s=4.910 checksum=6978933964257042231 peak_rss_mib=10726
+rep=1 RESULT lib=itchcpp mode=overlay arch=arm64 msgs=368366634 secs=0.633224 ns_per_msg=1.719 mmsg_s=581.732 gib_s=16.540 checksum=6978933964257042231 peak_rss_mib=10726
+rep=2 RESULT lib=itchcpp mode=overlay arch=arm64 msgs=368366634 secs=0.637157 ns_per_msg=1.730 mmsg_s=578.141 gib_s=16.438 checksum=6978933964257042231 peak_rss_mib=10726
+rep=3 RESULT lib=itchcpp mode=overlay arch=arm64 msgs=368366634 secs=0.641437 ns_per_msg=1.741 mmsg_s=574.284 gib_s=16.328 checksum=6978933964257042231 peak_rss_mib=10726
+rep=1 RESULT lib=itchcpp mode=book arch=arm64 msgs=368366634 secs=47.418602 ns_per_msg=128.727 mmsg_s=7.768 gib_s=0.221 checksum=0 peak_rss_mib=11025 books=8695
+rep=1 BBO lib=itchcpp sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=itchcpp sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=itchcpp sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=itchcpp sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=itchcpp sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=itchcpp sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=itchcpp sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=itchcpp sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=2 RESULT lib=itchcpp mode=book arch=arm64 msgs=368366634 secs=47.385190 ns_per_msg=128.636 mmsg_s=7.774 gib_s=0.221 checksum=0 peak_rss_mib=11025 books=8695
+rep=2 BBO lib=itchcpp sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=itchcpp sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=itchcpp sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=itchcpp sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=itchcpp sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=itchcpp sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=itchcpp sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=itchcpp sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=3 RESULT lib=itchcpp mode=book arch=arm64 msgs=368366634 secs=47.601504 ns_per_msg=129.223 mmsg_s=7.739 gib_s=0.220 checksum=0 peak_rss_mib=11025 books=8695
+rep=3 BBO lib=itchcpp sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=itchcpp sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=itchcpp sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=itchcpp sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=itchcpp sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=itchcpp sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=itchcpp sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=itchcpp sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=1 RESULT lib=cpptrader mode=parse arch=arm64 msgs=368366634 secs=2.619380 ns_per_msg=7.111 mmsg_s=140.631 gib_s=3.998 checksum=1008162892712547 peak_rss_mib=10730 unknown=0
+rep=2 RESULT lib=cpptrader mode=parse arch=arm64 msgs=368366634 secs=2.676889 ns_per_msg=7.267 mmsg_s=137.610 gib_s=3.913 checksum=1008162892712547 peak_rss_mib=10730 unknown=0
+rep=3 RESULT lib=cpptrader mode=parse arch=arm64 msgs=368366634 secs=2.598303 ns_per_msg=7.054 mmsg_s=141.772 gib_s=4.031 checksum=1008162892712547 peak_rss_mib=10730 unknown=0
+rep=1 RESULT lib=cpptrader mode=book arch=arm64 msgs=368366634 secs=56.729138 ns_per_msg=154.002 mmsg_s=6.493 gib_s=0.185 checksum=0 peak_rss_mib=11187 unknown=0 updates=788955229
+rep=1 BBO lib=cpptrader sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=cpptrader sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=cpptrader sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=cpptrader sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=cpptrader sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=cpptrader sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=cpptrader sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=cpptrader sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=2 RESULT lib=cpptrader mode=book arch=arm64 msgs=368366634 secs=56.725979 ns_per_msg=153.993 mmsg_s=6.494 gib_s=0.185 checksum=0 peak_rss_mib=11187 unknown=0 updates=788955229
+rep=2 BBO lib=cpptrader sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=cpptrader sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=cpptrader sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=cpptrader sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=cpptrader sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=cpptrader sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=cpptrader sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=cpptrader sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=3 RESULT lib=cpptrader mode=book arch=arm64 msgs=368366634 secs=56.840655 ns_per_msg=154.305 mmsg_s=6.481 gib_s=0.184 checksum=0 peak_rss_mib=11187 unknown=0 updates=788955229
+rep=3 BBO lib=cpptrader sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=cpptrader sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=cpptrader sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=cpptrader sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=cpptrader sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=cpptrader sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=cpptrader sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=cpptrader sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=1 RESULT lib=ccooper mode=book arch=arm64 msgs=368366634 secs=12.872821 ns_per_msg=34.946 mmsg_s=28.616 gib_s=0.814 checksum=0 peak_rss_mib=13297
+rep=1 BBO lib=ccooper sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=ccooper sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=ccooper sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=ccooper sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=ccooper sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=ccooper sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=ccooper sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=1 BBO lib=ccooper sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=2 RESULT lib=ccooper mode=book arch=arm64 msgs=368366634 secs=11.363601 ns_per_msg=30.849 mmsg_s=32.416 gib_s=0.922 checksum=0 peak_rss_mib=14610
+rep=2 BBO lib=ccooper sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=ccooper sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=ccooper sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=ccooper sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=ccooper sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=ccooper sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=ccooper sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=2 BBO lib=ccooper sym=INTC bid=0@0.0000 ask=0@0.0000
+rep=3 RESULT lib=ccooper mode=book arch=arm64 msgs=368366634 secs=11.243872 ns_per_msg=30.524 mmsg_s=32.762 gib_s=0.931 checksum=0 peak_rss_mib=14656
+rep=3 BBO lib=ccooper sym=AAPL bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=ccooper sym=MSFT bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=ccooper sym=AMZN bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=ccooper sym=SPY bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=ccooper sym=QQQ bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=ccooper sym=TSLA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=ccooper sym=NVDA bid=0@0.0000 ask=0@0.0000
+rep=3 BBO lib=ccooper sym=INTC bid=0@0.0000 ask=0@0.0000
+RESULT lib=itchfeed mode=parse arch=arm64 msgs=368366634 secs=280.927958 ns_per_msg=762.631 mmsg_s=1.311 gib_s=0.037 checksum=6978933964257042231 peak_rss_mib=10736
+RESULT lib=meatpy mode=parse arch=arm64 msgs=368366634 secs=365.247174 ns_per_msg=991.532 mmsg_s=1.009 gib_s=0.029 checksum=0 peak_rss_mib=23

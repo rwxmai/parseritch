@@ -103,6 +103,16 @@ public:
 
     [[nodiscard]] uint32_t capacity() const noexcept { return cap_; }
 
+    /// Prefetch the lines a near-top add or reduce touches: the best keys and
+    /// the matching qty and order-count entries.
+    ITCH_ALWAYS_INLINE void prefetch_top() const noexcept {
+        const uint32_t n = size_;
+        if (n == 0) return;
+        __builtin_prefetch(keys_.get() + n - 1);
+        __builtin_prefetch(qty_.get() + n - 1);
+        __builtin_prefetch(orders_.get() + n - 1);
+    }
+
     /// Allocate initial storage now instead of on the first add.
     void reserve_initial() { if (cap_ == 0) grow(); }
 
@@ -234,6 +244,15 @@ public:
     ITCH_ALWAYS_INLINE void prefetch_order(uint64_t ref) const noexcept { orders_.prefetch(ref); }
     ITCH_ALWAYS_INLINE void prefetch_book(uint16_t locate) const noexcept {
         __builtin_prefetch(&books_[locate]);
+    }
+    /// Prefetch the top-of-book level lines of one side ('B' or 'S').
+    ITCH_ALWAYS_INLINE void prefetch_levels(uint16_t locate, uint8_t side) const noexcept {
+        books_[locate].side(side).prefetch_top();
+    }
+    /// Both sides, for E/C/X/D/U, whose side is only known after the order lookup.
+    ITCH_ALWAYS_INLINE void prefetch_levels(uint16_t locate) const noexcept {
+        books_[locate].bids.prefetch_top();
+        books_[locate].asks.prefetch_top();
     }
 
     /// Pre-allocate level storage for a locate (called on Stock Directory).
