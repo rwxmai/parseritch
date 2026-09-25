@@ -150,6 +150,7 @@ set(ITCH_TEST_SOURCES
     tests/test_messages.cpp
     tests/test_parser.cpp
     tests/test_prefetch_pipeline.cpp
+    tests/test_depth_profiler.cpp
     tests/test_add_order_decode.cpp
     tests/test_concurrency.cpp
     tests/test_histogram.cpp)
