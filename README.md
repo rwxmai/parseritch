@@ -51,17 +51,18 @@ size, for 8 symbols at 12:00.
 Commercial feed handlers and exchange engines aren't available to benchmark,
 so this compares against the numbers their vendors publish, as published.
 
-| System | Published figure | What it measures | Hardware | Source |
-|---|---:|---|---|---|
-| **parseritch**, full-depth books | **37.4 ns/msg** | compute per message, replayed from memory | x86-64 build (above) | this repo |
-| **parseritch**, parse | **7.5 ns/msg** | compute per message, replayed from memory | x86-64 build (above) | this repo |
-| Exegy + AMD | 13.9 ns | STAC-T0 tick-to-trade, network I/O only, no book | FPGA (AMD Alveo UL3524) | [Exegy, 2024](https://www.exegy.com/exegy-amd-new-record/) |
-| Fractal ITCH parser | 24.8 ns | parse, last byte in → decoded command | FPGA @ 322 MHz | [GitHub](https://github.com/mbattyani/sub-25-ns-nasdaq-itch-fpga-parser) |
-| Exegy Nexus | < 350 ns | respond to aggregated market data | FPGA | [Exegy, 2025](https://www.exegy.com/nexus-launch/) |
-| NovaSparks NovaTick | 750 ns / 1.25 µs | Nasdaq ITCH + books, wire → FPGA core / wire → server memory | FPGA | [Markets Media, 2016](https://www.marketsmedia.com/novasparks-slashes-feed-handler-latency-25/) |
-| Tickerplant (open source) | 2.46 µs p50 | Nasdaq ITCH, wire → book | AMD EPYC 4484PX | [GitHub](https://github.com/Sanjith-Shan/Tickerplant) |
-| Redline InRush 3 | 5.2 µs mean | STAC-T1 tick-to-trade, 8× market rate | Dell R720, 16 cores | [A-Team, 2013](https://a-teaminsight.com/blog/stac-redline-and-kx-benchmarks-illustrate-leverage-of-hardware-advances/) |
-| Aquis Matching Engine | ≤ 17 µs p99.99 | exchange order matching, port to port | not stated | [Markets Media, 2019](https://www.marketsmedia.com/traders-qa-magnus-almqvist-aquis-technologies/) |
+| System | Latency (ns) | Statistic | What it measures | Hardware | Source |
+|---|---:|---|---|---|---|
+| **parseritch**, parse | **7.5** | mean per message | compute only, replayed from memory | [see method](bench-results/compare_01302019) | this repo |
+| Exegy + AMD | 13.9 | best reported | STAC-T0 tick-to-trade, network I/O only, no book | FPGA (AMD Alveo UL3524) | [Exegy, 2024](https://www.exegy.com/exegy-amd-new-record/) |
+| Fractal ITCH parser | 24.8 | fixed (8 clock cycles) | parse, last byte in → decoded command | FPGA @ 322 MHz | [GitHub](https://github.com/mbattyani/sub-25-ns-nasdaq-itch-fpga-parser) |
+| **parseritch**, full-depth books | **37.4** | mean per message | compute only, replayed from memory | [see method](bench-results/compare_01302019) | this repo |
+| Exegy Nexus | < 350 | upper bound | respond to aggregated market data | FPGA | [Exegy, 2025](https://www.exegy.com/nexus-launch/) |
+| NovaSparks NovaTick | 750 | reported | Nasdaq ITCH + books, wire → FPGA core | FPGA | [Markets Media, 2016](https://www.marketsmedia.com/novasparks-slashes-feed-handler-latency-25/) |
+| NovaSparks NovaTick | 1,250 | reported | Nasdaq ITCH + books, wire → server memory | FPGA | [Markets Media, 2016](https://www.marketsmedia.com/novasparks-slashes-feed-handler-latency-25/) |
+| Tickerplant (open source) | 2,455 | p50 | Nasdaq ITCH, wire → book | AMD EPYC 4484PX | [GitHub](https://github.com/Sanjith-Shan/Tickerplant) |
+| Redline InRush 3 | 5,200 | mean | STAC-T1 tick-to-trade, 8× market rate | Dell R720, 16 cores | [A-Team, 2013](https://a-teaminsight.com/blog/stac-redline-and-kx-benchmarks-illustrate-leverage-of-hardware-advances/) |
+| Aquis Matching Engine | ≤ 17,000 | p99.99 | exchange order matching, port to port | not stated | [Markets Media, 2019](https://www.marketsmedia.com/traders-qa-magnus-almqvist-aquis-technologies/) |
 
 ![parseritch next to published vendor figures on one time scale](docs/img/perf_vendors.png)
 
