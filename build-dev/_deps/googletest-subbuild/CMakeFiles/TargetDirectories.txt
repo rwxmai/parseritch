@@ -1,3 +1,0 @@
-/Users/zefiepie/Documents/GitHub/parseritch/build-dev/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
-/Users/zefiepie/Documents/GitHub/parseritch/build-dev/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
-/Users/zefiepie/Documents/GitHub/parseritch/build-dev/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir
