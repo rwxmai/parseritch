@@ -125,6 +125,18 @@ if(ITCH_BUILD_TESTS)
     enable_testing()
     include(GoogleTest)
 endif()
+if(ITCH_BUILD_BENCHMARKS)
+    find_package(benchmark 1.8 QUIET)
+    if(NOT benchmark_FOUND)
+        FetchContent_Declare(googlebenchmark
+            URL https://github.com/google/benchmark/archive/refs/tags/v1.9.1.tar.gz
+            URL_HASH SHA256=32131c08ee31eeff2c8968d7e874f3cb648034377dfc32a4c377fa8796d84981
+            DOWNLOAD_EXTRACT_TIMESTAMP TRUE)
+        set(BENCHMARK_ENABLE_TESTING OFF CACHE BOOL "" FORCE)
+        set(BENCHMARK_ENABLE_INSTALL OFF CACHE BOOL "" FORCE)
+        FetchContent_MakeAvailable(googlebenchmark)
+    endif()
+endif()
 
 # Can this machine run AVX2 binaries? Decides whether *_avx2 tests are
 # registered with CTest (building them is always fine).
@@ -159,6 +171,9 @@ set(ITCH_TEST_SOURCES
     tests/test_udp_receiver.cpp
     tests/test_packet.cpp
     tests/test_histogram.cpp)
+set(ITCH_BENCH_SOURCES
+    bench/bm_kernels.cpp
+    bench/bm_main.cpp)
 
 # One complete set of targets per ISA level. Each variant is its own set of
 # binaries: mixing ISAs inside one binary would let the linker pick the wide
@@ -185,7 +200,10 @@ function(itch_add_variant suffix march)
                                  TEST_PREFIX "${march}.")
         endif()
     endif()
-
+    if(ITCH_BUILD_BENCHMARKS)
+        add_executable(bm_itch${suffix} ${ITCH_BENCH_SOURCES})
+        target_link_libraries(bm_itch${suffix} PRIVATE itch${suffix} benchmark::benchmark)
+    endif()
 endfunction()
 
 itch_add_variant("" ${ITCH_MARCH})
