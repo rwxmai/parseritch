@@ -19,6 +19,9 @@ common=(-std=c++20 -O3 -DNDEBUG -DITCH_LEVEL_LINEAR_CHUNKS=4 -I"$root/include")
 $CXX "${common[@]}" "${X86[@]}" "$here/run_parseritch.cpp" "$bdir/libitch.a" -o "$out/parseritch.x86"
 $CXX "${common[@]}" -arch x86_64 -march=x86-64-v3 "$here/run_parseritch.cpp" "$bdir/libitch_avx2.a" -o "$out/parseritch_avx2.x86"
 
+# session_profile: parseritch's throughput across the session, per slice.
+$CXX "${common[@]}" "${X86[@]}" "$here/session_profile.cpp" "$bdir/libitch.a" -o "$out/session_profile"
+
 # itchcpp: libitch.a from its own CMake Release build (build-x86 / build-arm).
 ic="$PEERS/bbalouki_itchcpp"
 $CXX -std=c++20 -O3 -DNDEBUG "${X86[@]}" -I"$ic/include" -I"$ic" "$here/run_itchcpp.cpp" "$ic/build-x86/src/libitch.a" -o "$out/itchcpp.x86"
