@@ -131,6 +131,69 @@ TEST(Parser, WantsFilterSkipsDispatchButStillValidatesAndCounts) {
     EXPECT_EQ(p.stats().bad_length, 1u);
 }
 
+// --- for_each_frame ---------------------------------------------------------
+
+TEST(ForEachFrame, HeaderFieldsMatchTheFullDecode) {
+    std::vector<uint8_t> s;
+    MsgAddOrder a = add_at(11, 0x1234);
+    a.tracking = 0xBEEF;
+    a.timestamp = 0x0000'8765'4321'0FEDull;  // 48-bit
+    append(s, a);
+    MsgSystemEvent se;
+    se.locate = 0; se.tracking = 1; se.timestamp = 34'200'000'000'000ull; se.event_code = 'Q';
+    append(s, se);
+    MsgOrderDelete d;
+    d.locate = 0xFFFF; d.tracking = 2; d.timestamp = 0x0000'FFFF'FFFF'FFFFull; d.ref = 11;
+    append(s, d);
+
+    std::vector<Header> got;
+    std::vector<uint8_t> types;
+    const FrameScan r = for_each_frame(s.data(), s.size(), [&](const Frame& f) {
+        got.push_back({f.locate(), f.tracking(), f.timestamp()});
+        types.push_back(f.type());
+        EXPECT_EQ(f.len, kMessageLength[f.type()]);
+    });
+    EXPECT_EQ(r.frames, 3u);
+    EXPECT_EQ(r.consumed, s.size());
+    EXPECT_EQ(types, (std::vector<uint8_t>{'A', 'S', 'D'}));
+    ASSERT_EQ(got.size(), 3u);
+    const Header want[] = {a, se, d};
+    for (std::size_t i = 0; i < 3; ++i) {
+        EXPECT_EQ(got[i].locate, want[i].locate) << i;
+        EXPECT_EQ(got[i].tracking, want[i].tracking) << i;
+        EXPECT_EQ(got[i].timestamp, want[i].timestamp) << i;
+    }
+}
+
+TEST(ForEachFrame, SameFramingAndValidationAsTheParser) {
+    std::vector<uint8_t> s;
+    append(s, add(1));
+    append_raw(s, {});                 // empty
+    append_raw(s, {'Z', 1, 2, 3});     // unknown type
+    append_raw(s, {'A', 0, 1, 0, 0});  // wrong length
+    append(s, add(2));
+    const std::size_t complete = s.size();
+    append(s, add(3));
+    s.resize(s.size() - 5);  // trailing partial record
+
+    std::vector<uint64_t> refs;
+    const FrameScan r = for_each_frame(s.data(), s.size(), [&](const Frame& f) {
+        refs.push_back(decode<MsgAddOrder>(f.data).ref);  // full decode on demand
+    });
+    EXPECT_EQ(refs, (std::vector<uint64_t>{1, 2}));
+    EXPECT_EQ(r.frames, 2u);
+    EXPECT_EQ(r.empty, 1u);
+    EXPECT_EQ(r.malformed, 2u);
+    EXPECT_EQ(r.consumed, complete);
+
+    Recorder rec;
+    Parser<Recorder> p(rec);
+    EXPECT_EQ(p.parse_stream(s.data(), s.size()), r.consumed);
+    EXPECT_EQ(p.stats().messages, r.frames);
+    EXPECT_EQ(p.stats().unknown_type + p.stats().bad_length, r.malformed);
+    EXPECT_EQ(p.stats().empty, r.empty);
+}
+
 TEST(SymbolDirectory, KnownAndUnknownLocates) {
     SymbolDirectory d;
     EXPECT_EQ(d.symbol(42), "");  // unknown locate is empty, not 8 NULs

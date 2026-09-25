@@ -119,6 +119,13 @@ So:
   overlap instead of arriving one by one. Results are identical to
   `parse_stream`; the right *D* is measured, not guessed (`BM_Parse_Prefetch`).
   `feed_handler` replays with *D* = 16 by default (`--prefetch 0` turns it off).
+- **Skipping the type dispatch.** The per-message indirect branch on the type
+  byte is poorly predicted on real data and dominates when a handler does
+  little. A handler can declare `wants(type, locate)` to reject messages
+  before dispatch (`BookBuilder` forwards it from its sink, so books can be
+  limited to the symbols a strategy trades), and `for_each_frame()` walks the
+  validated records without dispatching at all, for work that needs only the
+  header fields (type, locate, tracking, timestamp).
 - **Seqlock top-of-book.** Readers get a consistent snapshot or retry. All
   fields share one cache line. Everything is `std::atomic` with relaxed
   loads and stores, so there is no data race; on x86 these are plain `MOV`s.

@@ -17,10 +17,16 @@
 /// Those runs are short, though, so the target is often mispredicted, and
 /// the branch is most of a message's cost when the handler does little (about
 /// 4 of 7 ns per message on the 2019-01-30 Nasdaq day, parse-only, measured
-/// under Rosetta). A handler may therefore declare
-/// `bool wants(uint8_t type, uint16_t locate) const`: messages it rejects are
-/// validated and counted but never dispatched, so a handler that follows a
-/// few symbols skips the branch for all the others.
+/// under Rosetta). Two ways around it:
+///   * a handler may declare `bool wants(uint8_t type, uint16_t locate) const`;
+///     messages it rejects are validated and counted but never dispatched,
+///     so a handler that follows a few symbols skips the branch for the rest;
+///   * for_each_frame() walks the same validated records without dispatching
+///     at all, handing out Frame views whose header fields (type, locate,
+///     tracking, timestamp) sit at the same offsets in every message type.
+///     Use it for work that needs only those fields (counting, slicing by
+///     time, sharding by symbol), and Parser::parse() on the frames that
+///     need a full decode.
 ///
 /// Every message length is checked against the spec (kMessageLength) before
 /// decoding, so a truncated or corrupt frame can't cause an out-of-bounds
@@ -161,5 +167,47 @@ private:
     Handler& handler_;
     Stats    stats_{};
 };
+
+/// One validated ITCH record, not decoded. The header fields are common to
+/// every message type and sit at fixed offsets, so reading them needs no
+/// dispatch on the type byte.
+struct Frame {
+    const uint8_t* data;  ///< data[0] is the type byte
+    std::size_t    len;   ///< equals kMessageLength[data[0]]
+
+    [[nodiscard]] ITCH_ALWAYS_INLINE uint8_t  type() const noexcept { return data[0]; }
+    [[nodiscard]] ITCH_ALWAYS_INLINE uint16_t locate() const noexcept { return load_be16(data + 1); }
+    [[nodiscard]] ITCH_ALWAYS_INLINE uint16_t tracking() const noexcept { return load_be16(data + 3); }
+    /// ns since midnight. Reads bytes 3..10, which every message has.
+    [[nodiscard]] ITCH_ALWAYS_INLINE uint64_t timestamp() const noexcept { return load_be48_overread(data + 5); }
+};
+
+struct FrameScan {
+    std::size_t consumed  = 0;  ///< bytes; a trailing partial record is left unconsumed
+    uint64_t    frames    = 0;  ///< records passed to the callback
+    uint64_t    malformed = 0;  ///< unknown type or wrong length: skipped
+    uint64_t    empty     = 0;  ///< zero-length records (legal in MoldUDP64): skipped
+};
+
+/// Walks a buffer of [u16 big-endian length][message] records and calls
+/// f(const Frame&) for each well-formed one: the same framing and length
+/// checks as Parser::parse_stream, but no decode and no per-type dispatch.
+template <class F>
+FrameScan for_each_frame(const uint8_t* buf, std::size_t len, F&& f) {
+    FrameScan r;
+    std::size_t off = 0;
+    while (off + 2 <= len) {
+        const std::size_t n = load_be16(buf + off);
+        if (ITCH_UNLIKELY(off + 2 + n > len)) break;
+        const uint8_t* msg = buf + off + 2;
+        off += 2 + n;
+        if (ITCH_UNLIKELY(n == 0)) { ++r.empty; continue; }
+        if (ITCH_UNLIKELY(kMessageLength[msg[0]] != n)) { ++r.malformed; continue; }
+        ++r.frames;
+        f(Frame{msg, n});
+    }
+    r.consumed = off;
+    return r;
+}
 
 } // namespace itch
