@@ -32,8 +32,7 @@ AF_XDP kernel bypass.
 
 *Nasdaq TotalView-ITCH 5.0, full day 2019-01-30 (368M messages), median of 3
 runs; every library built the same way and run on the same file and machine.
-x86-64-v2 build on an Apple M5 Pro, macOS 26 (Rosetta 2). Method and raw
-results: [`bench-results/compare_01302019`](bench-results/compare_01302019).*
+[`bench-results/compare_01302019`](bench-results/compare_01302019).*
 
 ![Time per message: parseritch vs itchcpp, CppTrader and charles-cooper/itch-order-book](docs/img/perf_overview.png)
 
@@ -52,44 +51,19 @@ size, for 8 symbols at 12:00.
 Commercial feed handlers and exchange engines aren't available to benchmark,
 so this compares against the numbers their vendors publish, as published.
 
-| System | Latency (ns) | Statistic | What it measures | Hardware | Source |
-|---|---:|---|---|---|---|
-| **parseritch**, parse | **7.5** | mean per message | compute only, replayed from memory | x86-64 build (above) | this repo |
-| Exegy + AMD | 13.9 | best reported | STAC-T0 tick-to-trade, network I/O only, no book | FPGA (AMD Alveo UL3524) | [Exegy, 2024](https://www.exegy.com/exegy-amd-new-record/) |
-| Fractal ITCH parser | 24.8 | fixed (8 clock cycles) | parse, last byte in → decoded command | FPGA @ 322 MHz | [GitHub](https://github.com/mbattyani/sub-25-ns-nasdaq-itch-fpga-parser) |
-| **parseritch**, full-depth books | **37.4** | mean per message | compute only, replayed from memory | x86-64 build (above) | this repo |
-| Exegy Nexus | < 350 | upper bound | respond to aggregated market data | FPGA | [Exegy, 2025](https://www.exegy.com/nexus-launch/) |
-| NovaSparks NovaTick | 750 | reported | Nasdaq ITCH + books, wire → FPGA core | FPGA | [Markets Media, 2016](https://www.marketsmedia.com/novasparks-slashes-feed-handler-latency-25/) |
-| NovaSparks NovaTick | 1,250 | reported | Nasdaq ITCH + books, wire → server memory | FPGA | [Markets Media, 2016](https://www.marketsmedia.com/novasparks-slashes-feed-handler-latency-25/) |
-| Tickerplant (open source) | 2,455 | p50 | Nasdaq ITCH, wire → book | AMD EPYC 4484PX | [GitHub](https://github.com/Sanjith-Shan/Tickerplant) |
-| Redline InRush 3 | 5,200 | mean | STAC-T1 tick-to-trade, 8× market rate | Dell R720, 16 cores | [A-Team, 2013](https://a-teaminsight.com/blog/stac-redline-and-kx-benchmarks-illustrate-leverage-of-hardware-advances/) |
-| Aquis Matching Engine | ≤ 17,000 | p99.99 | exchange order matching, port to port | not stated | [Markets Media, 2019](https://www.marketsmedia.com/traders-qa-magnus-almqvist-aquis-technologies/) |
+| System | Published figure | What it measures | Hardware | Source |
+|---|---:|---|---|---|
+| **parseritch**, full-depth books | **37.4 ns/msg** | compute per message, replayed from memory | x86-64 build (above) | this repo |
+| **parseritch**, parse | **7.5 ns/msg** | compute per message, replayed from memory | x86-64 build (above) | this repo |
+| Exegy + AMD | 13.9 ns | STAC-T0 tick-to-trade, network I/O only, no book | FPGA (AMD Alveo UL3524) | [Exegy, 2024](https://www.exegy.com/exegy-amd-new-record/) |
+| Fractal ITCH parser | 24.8 ns | parse, last byte in → decoded command | FPGA @ 322 MHz | [GitHub](https://github.com/mbattyani/sub-25-ns-nasdaq-itch-fpga-parser) |
+| Exegy Nexus | < 350 ns | respond to aggregated market data | FPGA | [Exegy, 2025](https://www.exegy.com/nexus-launch/) |
+| NovaSparks NovaTick | 750 ns / 1.25 µs | Nasdaq ITCH + books, wire → FPGA core / wire → server memory | FPGA | [Markets Media, 2016](https://www.marketsmedia.com/novasparks-slashes-feed-handler-latency-25/) |
+| Tickerplant (open source) | 2.46 µs p50 | Nasdaq ITCH, wire → book | AMD EPYC 4484PX | [GitHub](https://github.com/Sanjith-Shan/Tickerplant) |
+| Redline InRush 3 | 5.2 µs mean | STAC-T1 tick-to-trade, 8× market rate | Dell R720, 16 cores | [A-Team, 2013](https://a-teaminsight.com/blog/stac-redline-and-kx-benchmarks-illustrate-leverage-of-hardware-advances/) |
+| Aquis Matching Engine | ≤ 17 µs p99.99 | exchange order matching, port to port | not stated | [Markets Media, 2019](https://www.marketsmedia.com/traders-qa-magnus-almqvist-aquis-technologies/) |
 
 ![parseritch next to published vendor figures on one time scale](docs/img/perf_vendors.png)
-
-How to read it: the vendor figures include the network (packet in to book,
-trade or order out) on dedicated hardware; parseritch's numbers are the
-software share alone, without a NIC in the path. So parseritch's 37.4 ns is
-the book-building work a software feed handler has to fit inside a wire-to-book
-budget like Tickerplant's 2,455 ns or NovaSparks' 1,250 ns, not a win over them.
-The FPGA rows show where hardware takes over: parsing in 24.8 ns and trading
-in 13.9 ns. Aquis is an exchange matching engine, not a market-data handler.
-
----
-
-## Where the intrinsics are
-
-| Kernel | File | Variants | Idea |
-|---|---|---|---|
-| Order lookup (Swiss table) | [`simd/group.hpp`](include/itch/simd/group.hpp), [`order_map.hpp`](include/itch/order_map.hpp) | SWAR (8), **SSE2 (16)**, AVX2 (32) | 1-byte hash tags stored contiguously; one `pcmpeqb` + `pmovmskb` checks a whole group of slots. |
-| Price-level search | [`simd/level_search.hpp`](include/itch/simd/level_search.hpp) | scalar, branchless binary, SSE2, **SSE4.1**, AVX2 | Scan 8 sorted keys from the top of book; the insertion point is `end - popcount(ge_mask)`, with no per-lane branches and no scalar tail. |
-| Level-array shifts | [`simd/block_move.hpp`](include/itch/simd/block_move.hpp) | **SSE2** | 16-byte overlapping moves instead of libc `memmove`, which picks 256/512-bit copies at run time. |
-| Add Order decode | [`simd/add_order_decode.hpp`](include/itch/simd/add_order_decode.hpp) | scalar (load + BSWAP; MOVBE in the AVX2 build), **SSSE3**, AVX2 | The whole 36-byte message is a byte permutation. Works around `pshufb` being unable to cross 16-byte lanes. |
-| Big-endian fields | [`bytes.hpp`](include/itch/bytes.hpp) | builtins | `memcpy` + `__builtin_bswap` already compiles to load + `BSWAP` (one `MOVBE` in the AVX2 build): a case where hand-written intrinsics add nothing. |
-
-Bold = what the default 128-bit build runs. [`docs/intrinsics.md`](docs/intrinsics.md)
-walks through each kernel: the instruction sequence the compiler emits, the
-ISA quirk it works around, and where it should lose to scalar code.
 
 ---
 
@@ -243,18 +217,6 @@ Targets: `feed_handler`, `bm_itch`, `itch_tests` (default, x86-64-v2) and
 | `ITCH_BOLT_READY` | `OFF` | link with `--emit-relocs` for `llvm-bolt` (see `tools/bolt.sh`) |
 | `ITCH_ENABLE_XDP` | `OFF` | AF_XDP receiver + BPF program (Linux; libbpf, libxdp, clang, pkg-config) |
 | `ITCH_WERROR` | `ON` | warnings are errors (`-Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Wshadow ...`) |
-
-**Linux on a Mac.** [`tools/docker/Dockerfile`](tools/docker/Dockerfile) is
-the CI toolchain (GCC 13, Clang 18, sanitizer runtimes, libxdp) as an x86-64
-container; its header shows how to build and test in it. On Apple Silicon it
-runs under Rosetta for Linux: builds, tests, ASan+UBSan and the AF_XDP
-self-test work there, but TSan doesn't and timings mean nothing.
-
-**Apple Silicon, natively.** The project is x86-only. On an arm64 Mac, CMake
-builds x86_64 and the binaries run under Rosetta 2, which executes SSE and
-AVX2 but hides AVX2 from CPUID (the startup check knows and allows it). Use
-this for development and correctness testing only: `bm_itch` prints a
-warning, and `plot_benchmarks.py` refuses to plot Rosetta results.
 
 ---
 
